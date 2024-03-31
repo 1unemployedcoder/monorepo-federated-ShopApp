@@ -22,8 +22,7 @@ export default (env: EnvVariables): object => {
             name: 'shop',
             filename: 'remoteEntry.js',
             exposes: {
-                './Router': './src/router/Router.tsx',
-                './Store': './src/redux/store.ts'
+                './Router': './src/router/Router.tsx'
             },
             shared: {
                 ...packageJson.dependencies,
