@@ -1,0 +1,92 @@
+.mainPage {
+    width: 50%;
+    display: flex;
+    &__title {
+        font-size: xxx-large;
+    }
+    &__titleProducts {
+        font-size: xx-large;
+        margin: 0.2rem 1rem 0 0;
+    }
+    &__container {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        position: relative;
+        padding-right: 2rem;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: -25rem;
+            right: 0;
+            width: 2px;
+            background-color: #cccccc;
+        }
+    }
+
+    &__products {
+        display: flex;
+        flex-direction: column;
+        margin-left: 2rem;
+        position: relative;
+    }
+
+    .titles__container {
+        display: flex;
+    }
+
+    .carousel {
+        font-size: large;
+        width: 500px;
+        height: 350px;
+        position: absolute;
+        top: 150px;
+        bottom: 0;
+        left: 150px;
+        right: 0;
+    }
+
+    .news {
+        margin: 2rem;
+        width: 85%;
+        height: 100%;
+        &__title {
+            text-align: center;
+        }
+        &__desc {
+            text-align: center;
+        }
+        &__etc {
+            position: absolute;
+        }
+        &__item {
+            display: flex;
+            background: #f5f5f5;
+            flex-direction: column;
+            border: 2px solid #ff8200;
+            border-radius: 1rem;
+            padding: 1rem;
+            margin: 1rem 0 0 0;
+        }
+        &__btn {
+            width: 50%;
+            margin: auto;
+        }
+        &__img {
+            margin: auto;
+            width: 50%;
+        }
+    }
+}
+
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &>* {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}

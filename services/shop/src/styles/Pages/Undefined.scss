@@ -1,0 +1,14 @@
+.undefined {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__modifier {
+        margin: 1rem;
+    }
+    &__desc {
+        width: 60%;
+        font-size: large;
+        text-align: center;
+    }
+}

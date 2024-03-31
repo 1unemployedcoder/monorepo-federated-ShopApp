@@ -1,0 +1,23 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: bisque;
+    height: 100%;
+    width: 300px;
+    padding: 0 2rem 2rem 2rem;
+    border-radius: 10px;
+
+    img {
+        margin-top: -20%;
+        width: 50%;
+        border-radius: 20px;
+    }
+
+    .btnn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

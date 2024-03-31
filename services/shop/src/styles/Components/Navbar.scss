@@ -1,0 +1,50 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #cccccc;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: white;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
+
+.loginModal {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    :first-child {
+        margin-bottom: auto;
+    }
+    :last-child {
+        margin-top: auto;
+    }
+}
+
+
+.cartCount {
+    font-size: 0.7rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 36.5rem;
+    background: #ff8200;
+    border-radius: 0.5rem;
+    padding: 0.4rem;
+}

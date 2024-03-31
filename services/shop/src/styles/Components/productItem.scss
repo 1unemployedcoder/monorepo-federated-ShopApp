@@ -1,0 +1,77 @@
+@import "../variables/variables";
+
+.post {
+    display: flex;
+    align-items: center;
+    background: rgb(241, 241, 241);
+    margin: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    height: 100%;
+
+    &:hover {
+        color: orange;
+    }
+
+    &__description {
+        color: #888888;
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+        width: 100%;
+    }
+
+    img {
+        width: 30%;
+    }
+
+    &__info {
+        width: 100%;
+        padding: 0 1.5rem;
+    }
+
+    &__comments {
+        width: 6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        padding: 0.1rem;
+        border-radius: 0.5rem;
+
+        &:hover {
+            background: linear-gradient(0deg, $primary-color1, $primary-color-gradient);
+        }
+    }
+
+    &__btns {
+        padding: 1.5rem;
+    }
+
+    &__btnsCount {
+        display: flex;
+        align-Items: center;
+    }
+
+    &__btn {
+        width: 100%;
+        margin: 1rem;
+    }
+
+    &__open {
+        transition: color $post-transition-time;
+
+        &:hover {
+            cursor: pointer;
+            color: $primary-color1;
+        }
+    }
+
+    &-exit, &-exit-active {
+        opacity: 0;
+        transition: opacity $post-exit-transition-time ease-in;
+    }
+}

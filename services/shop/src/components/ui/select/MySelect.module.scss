@@ -1,0 +1,38 @@
+.mySelect {
+    display: flex;
+    position: relative;
+
+    .selectedOption {
+        cursor: pointer;
+        color: #0d61af;
+        &:hover {
+            color: orange;
+        }
+    }
+
+    .openOptions {
+        cursor: pointer;
+        color: orange;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        .option {
+            padding: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #f0f0f0;
+            }
+        }
+    }
+}

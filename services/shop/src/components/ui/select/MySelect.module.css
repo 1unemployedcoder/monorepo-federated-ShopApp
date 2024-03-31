@@ -1,0 +1,35 @@
+.mySelect {
+  display: flex;
+  position: relative;
+}
+.mySelect .selectedOption {
+  cursor: pointer;
+  color: #0d61af;
+}
+.mySelect .selectedOption:hover {
+  color: orange;
+}
+.mySelect .openOptions {
+  cursor: pointer;
+  color: orange;
+}
+.mySelect .options {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.mySelect .options .option {
+  padding: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.mySelect .options .option:hover {
+  background-color: #f0f0f0;
+}
+
+/*# sourceMappingURL=MySelect.module.css.map */

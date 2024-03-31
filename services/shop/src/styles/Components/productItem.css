@@ -1,0 +1,64 @@
+.post {
+  display: flex;
+  align-items: center;
+  background: rgb(241, 241, 241);
+  margin: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  height: 100%;
+}
+.post:hover {
+  color: orange;
+}
+.post__description {
+  color: #888888;
+}
+.post__content {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  width: 100%;
+}
+.post img {
+  width: 30%;
+}
+.post__info {
+  width: 100%;
+  padding: 0 1.5rem;
+}
+.post__comments {
+  width: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.1rem;
+  border-radius: 0.5rem;
+}
+.post__comments:hover {
+  background: linear-gradient(0deg, #ff8500, #ff9800);
+}
+.post__btns {
+  padding: 1.5rem;
+}
+.post__btnsCount {
+  display: flex;
+  align-Items: center;
+}
+.post__btn {
+  width: 100%;
+  margin: 1rem;
+}
+.post__open {
+  transition: color 0.2s;
+}
+.post__open:hover {
+  cursor: pointer;
+  color: #ff8500;
+}
+.post-exit, .post-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
+
+/*# sourceMappingURL=productItem.css.map */
