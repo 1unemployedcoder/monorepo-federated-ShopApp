@@ -11,7 +11,6 @@ export function buildLoaders (options: BuildOptions): ModuleOptions['rules'] {
         use: [
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             'css-loader',
-            'postcss-loader',
             'sass-loader'
         ]
     }
