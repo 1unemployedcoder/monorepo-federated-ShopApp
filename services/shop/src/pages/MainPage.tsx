@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import {setCategory} from "../redux/slices/categoriesSlice";
-import Carousel from "../components/MainPage/Carousel/Carousel";
-import Categories from "../components/MainPage/Categories/Categories";
-import NewsList from "../components/MainPage/News/NewsList";
-import IFButton from "../components/ui/styledComponents/styledButton/IF_Button";
-import {MainTabs} from "../@types/types";
-import {useAppDispatch} from "../redux/store";
-import {Helmet} from "react-helmet";
+import React, { useEffect, useState } from 'react'
+import { setCategory } from '@/redux/slices/categoriesSlice'
+import Carousel from '../components/MainPage/Carousel/Carousel'
+import Categories from '../components/MainPage/Categories/Categories'
+import NewsList from '../components/MainPage/News/NewsList'
+import IFButton from '../components/ui/styledComponents/styledButton/IF_Button'
+import { type MainTabs } from '@/@types/types'
+import { useAppDispatch } from '@/redux/store'
+import { Helmet } from 'react-helmet'
 const MainPage = () => {
     const [activeTab, setActiveTab] = useState<MainTabs>('popular')
     localStorage.setItem('currentCategoryName', 'Все')
@@ -17,8 +17,8 @@ const MainPage = () => {
                 value: 'all'
             },
             name: 'Все'
-        }));
-    }, [dispatch]);
+        }))
+    }, [dispatch])
 
     return (
         <div className='mainPage'>
@@ -41,14 +41,14 @@ const MainPage = () => {
                     <div className="mainPage__titleProducts">
                         <IFButton primary={activeTab === 'popular'}
                             className='mainPage__titleProducts'
-                            onClick={() => setActiveTab('popular')}>
+                            onClick={() => { setActiveTab('popular') }}>
                             Популярное
                         </IFButton>
                     </div>
                     <div className="mainPage__titleProducts">
                         <IFButton primary={activeTab === 'news'}
                             className='mainPage__titleProducts'
-                            onClick={() => setActiveTab('news')}>
+                            onClick={() => { setActiveTab('news') }}>
                             Новости
                         </IFButton>
                     </div>
@@ -65,7 +65,7 @@ const MainPage = () => {
                 )}
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default MainPage;
+export default MainPage

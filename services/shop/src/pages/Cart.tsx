@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
-import {setCategory} from "../redux/slices/categoriesSlice";
+import {setCategory} from "@/redux/slices/categoriesSlice";
 import CartList from "../components/CartPage/Cart/CartList";
-import {useAppDispatch} from "../redux/store";
+import {useAppDispatch} from "@/redux/store";
 import {Helmet} from "react-helmet";
 
 const Cart = () => {
