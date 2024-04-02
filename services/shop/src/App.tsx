@@ -5,14 +5,7 @@ import './styles/styles'
 import cl from './styles/App.module.scss'
 import { store } from '@/redux/store'
 import { Provider } from 'react-redux'
-import styled from 'styled-components'
-
-const StyledApp = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    font-family: 'Nunito', serif;
-`
+import { StyledApp } from '@/components/ui/styledComponents/styledApp'
 
 export const App = (): React.ReactNode => {
     return (

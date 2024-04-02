@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
-import {setCategory} from "@/redux/slices/categoriesSlice";
-import CartList from "../components/CartPage/Cart/CartList";
-import {useAppDispatch} from "@/redux/store";
-import {Helmet} from "react-helmet";
+import React, { useEffect } from 'react'
+import { setCategory } from '@/redux/slices/categoriesSlice'
+import CartList from '../components/CartPage/Cart/CartList'
+import { useAppDispatch } from '@/redux/store'
+import { Helmet } from 'react-helmet'
 
 const Cart = () => {
     const dispatch = useAppDispatch()
@@ -12,8 +12,8 @@ const Cart = () => {
                 value: 'all'
             },
             name: 'Все'
-        }));
-    }, [dispatch]);
+        }))
+    }, [dispatch])
     return (
         <div>
             <Helmet>
@@ -23,7 +23,7 @@ const Cart = () => {
             </Helmet>
             <CartList/>
         </div>
-    );
-};
+    )
+}
 
-export default Cart;
+export default Cart
