@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import {useFetching} from "../../../hooks/useFetching";
-import ProductService from "../../../API/ProductService";
-import Card from "../../ui/card/Card";
-import CarouselCard from "./CarouselItem";
-import ConditionalContent from "../../ConditionalContent";
-import CarouselSkeleton from "./CarouselSkeleton";
-import {Product} from "../../../@types/types";
+import React, { useEffect, useState } from 'react'
+import { useFetching } from '@/hooks/useFetching'
+import ProductService from '../../../API/ProductService'
+import Card from '../../ui/card/Card'
+import CarouselCard from './CarouselItem'
+import ConditionalContent from '../../ConditionalContent'
+import CarouselSkeleton from './CarouselSkeleton'
+import { type Product } from '@/@types/types'
 
 const Carousel = () => {
     const [carousel, setCarousel] = useState<Product[]>([])
@@ -16,7 +16,7 @@ const Carousel = () => {
 
     useEffect(() => {
         fetchCarousel()
-    }, [errorCarousel]);
+    }, [errorCarousel])
 
     const cards = carousel.map(card => {
         return {
@@ -48,7 +48,7 @@ const Carousel = () => {
                 showArrowsState={false}
             />
         </ConditionalContent>
-    );
-};
+    )
+}
 
-export default Carousel;
+export default Carousel

@@ -1,7 +1,7 @@
 import React, {FormEvent, useState} from 'react';
 import BtnOrdinary from "../../ui/styledComponents/styledButton/BtnOrdinary";
 import InputMain from "../../ui/styledComponents/styledInput/InputMain";
-
+import cl from '@/styles/modules/Comment.module.scss'
 const ProductCreateComments = () => {
     const [comment, setComment] = useState({name: '', desc: '', rate: 0});
 
@@ -10,8 +10,8 @@ const ProductCreateComments = () => {
         setComment({name: '', desc: '', rate: 0});
     }
     return (
-        <form className='formComment'>
-            <h3 className="formComment__title">Создать комментарий</h3>
+        <form className={cl.formComment}>
+            <h3 className={cl.formComment__title}>Создать комментарий</h3>
                 <InputMain
                     placeholder='Имя'
                     value={comment.name}

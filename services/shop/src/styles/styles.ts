@@ -1,8 +1,3 @@
 import './index.scss'
 import './Components/Navbar.scss'
 import './Components/productItem.scss'
-import './Components/commentComponent.scss'
-import './Pages/productPage.scss'
-import './Pages/MainPage.scss'
-import './Pages/NewsPage.scss'
-import './Pages/Undefined.scss'

@@ -1,22 +1,23 @@
-import React, {useEffect, useState} from "react";
-import {totalPagesCalc} from "../utils/totalPagesCalc";
-import ProductFilter from "../components/ProductsPage/Product/ProductFilter";
-import {useLocation, useParams} from "react-router-dom";
-import ProductsContent from "../components/ProductsPage/PageStates/ProductsContent";
-import ProductSkeleton from "../components/ProductsPage/Product/ProductSkeleton";
-import ConditionalContent from "../components/ConditionalContent";
-import {useSelector} from "react-redux";
-import {fetchProducts} from "../redux/slices/productsSlice";
-import {MyHeaders, SortType} from "../@types/types";
-import {RootState, useAppDispatch} from "../redux/store";
-import {setCategory} from "../redux/slices/categoriesSlice";
-import {Helmet} from "react-helmet";
+import React, { useEffect, useState } from 'react'
+import { totalPagesCalc } from '@/utils/totalPagesCalc'
+import ProductFilter from '../components/ProductsPage/Product/ProductFilter'
+import { useLocation, useParams } from 'react-router-dom'
+import ProductsContent from '../components/ProductsPage/PageStates/ProductsContent'
+import ProductSkeleton from '../components/ProductsPage/Product/ProductSkeleton'
+import ConditionalContent from '../components/ConditionalContent'
+import { useSelector } from 'react-redux'
+import { fetchProducts } from '@/redux/slices/productsSlice'
+import { type MyHeaders, type SortType } from '@/@types/types'
+import { type RootState, useAppDispatch } from '@/redux/store'
+import { setCategory } from '@/redux/slices/categoriesSlice'
+import { Helmet } from 'react-helmet'
+import cl from '@/styles/modules/Products.module.scss'
 
-function Products() {
-    const {type } = useParams()
+function Products () {
+    const { type } = useParams()
     const location = useLocation()
-    const searchParams = new URLSearchParams(location.search);
-    const search = searchParams.get('search');
+    const searchParams = new URLSearchParams(location.search)
+    const search = searchParams.get('search')
     const currentCategoryName = localStorage.getItem('currentCategoryName')
     const [sort, setSort] = useState<SortType>('')
     const [totalPages, setTotalPages] = useState<number>(0)
@@ -24,7 +25,7 @@ function Products() {
     const [page, setPage] = useState<number>(1)
 
     const dispatch = useAppDispatch()
-    const {items, headers, status} = useSelector((state: RootState) => state.products)
+    const { items, headers, status } = useSelector((state: RootState) => state.products)
 
     useEffect(() => {
         dispatch(setCategory({
@@ -32,8 +33,8 @@ function Products() {
                 value: type
             },
             name: currentCategoryName
-        }));
-    }, [dispatch]);
+        }))
+    }, [dispatch])
 
     useEffect(() => {
         dispatch(fetchProducts({ search, sort, limit, page, type }))
@@ -41,28 +42,28 @@ function Products() {
 
     useEffect(() => {
         setPage(1)
-    }, [sort, search]);
+    }, [sort, search])
 
     useEffect(() => {
         const totalCount = headers as unknown as MyHeaders
         if ('x-total-count' in totalCount) {
-            setTotalPages(totalPagesCalc(parseInt(totalCount['x-total-count']), limit));
+            setTotalPages(totalPagesCalc(parseInt(totalCount['x-total-count']), limit))
         }
-    }, [items]);
+    }, [items])
 
     return (
-        <div className="Products">
+        <div className={cl.Products}>
             <Helmet>
                 <title>
                     {`SHOP | ${currentCategoryName ?? 'Купить...'}`}
                 </title>
             </Helmet>
-            {search && items.length
+            {search && (items.length > 0)
                 ? <div>
-                    <h1 className='title'>{currentCategoryName}</h1>
-                    <div className='title'>Результаты поиска по: {search}</div>
+                    <h1 className={cl.title}>{currentCategoryName}</h1>
+                    <div className={cl.title}>Результаты поиска по: {search}</div>
                 </div>
-                : <h1 className='title'>{currentCategoryName}</h1>
+                : <h1 className={cl.title}>{currentCategoryName}</h1>
             }
             <ProductFilter
                 sort={sort}
@@ -84,7 +85,7 @@ function Products() {
                 />
             </ConditionalContent>
         </div>
-    );
+    )
 }
 
-export default Products;
+export default Products

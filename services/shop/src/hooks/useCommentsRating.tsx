@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {ProductCommentsTypes} from "../@types/types";
+import {ProductCommentsTypes} from "@/@types/types";
+import cl from '@/styles/modules/Comment.module.scss'
 
 const useCommentsRating = (initialComments: ProductCommentsTypes[]) => {
     const [stars, setStars] = useState<React.ReactNode[]>([])
@@ -27,7 +28,7 @@ const useCommentsRating = (initialComments: ProductCommentsTypes[]) => {
 
     const renderStars = () => {
         const stars = Array.from({ length: 5 }, (_, index) => (
-            <span key={index} className={index + 1 <= rating ? 'star filled' : 'star'}>
+            <span key={index} className={index + 1 <= rating ? `${cl.star} ${cl.filled}` : cl.star}>
                 ★
             </span>
         ))

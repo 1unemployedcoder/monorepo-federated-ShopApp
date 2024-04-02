@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import {useFetching} from "../hooks/useFetching";
+import {useFetching} from "@/hooks/useFetching";
 import ProductService from "../API/ProductService";
 import ProductComments from "../components/ProductPage/Comments/ProductComments";
 import NewsItem from "../components/MainPage/News/NewsItem";
 import ConditionalContent from "../components/ConditionalContent";
 import PageSkeleton from "../components/ui/skeletonLoader/PageSkeleton";
-import {NewsCommentsTypes, NewsPost} from "../@types/types";
+import {NewsCommentsTypes, NewsPost} from "@/@types/types";
 import {Helmet} from "react-helmet";
+import cl from '@/styles/modules/News.module.scss'
 
 const NewsItemPage = () => {
     const {id} = useParams() //id новости
@@ -31,7 +32,7 @@ const NewsItemPage = () => {
         fetchingNews()
     }, [error]);
     return (
-        <div className='newsPage'>
+        <div className={cl.newsPage}>
             <Helmet>
                 <title>
                     {`SHOP | ${newsPost.title ?? 'Новость'}`}

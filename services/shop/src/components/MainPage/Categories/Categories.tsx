@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {useFetching} from "../../../hooks/useFetching";
+import {useFetching} from "@/hooks/useFetching";
 import ProductService from "../../../API/ProductService";
 import ConditionalContent from "../../ConditionalContent";
 import CategorySkeleton from "./CategorySkeleton";
 import CategoriesList from "./CategoriesList";
-import {Category} from "../../../@types/types";
+import {Category} from "@/@types/types";
 
 const Categories = () => {
     const [categories, setCategories] = useState<Category[]>([])

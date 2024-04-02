@@ -1,30 +1,31 @@
-import React from 'react';
-import ProductCreateComments from "./ProductCreateComments";
-import useCommentsRating from "../../../hooks/useCommentsRating";
-import {TransitionGroup, CSSTransition} from "react-transition-group";
-import CommentItem from "./CommentItem";
-import {ProductCommentsProps} from "../../../@types/typesComponents";
-import {ProductCommentsTypes} from "../../../@types/types";
+import React from 'react'
+import ProductCreateComments from './ProductCreateComments'
+import useCommentsRating from '../../../hooks/useCommentsRating'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import CommentItem from './CommentItem'
+import { type ProductCommentsProps } from '@/@types/typesComponents'
+import { type ProductCommentsTypes } from '@/@types/types'
+import cl from '@/styles/modules/Comment.module.scss'
 
-const ProductComments: React.FC<ProductCommentsProps> = ({comments, productId}) => {
-    const {rating, stars} = useCommentsRating(comments as ProductCommentsTypes[]);
+const ProductComments: React.FC<ProductCommentsProps> = ({ comments, productId }) => {
+    const { rating, stars } = useCommentsRating(comments as ProductCommentsTypes[])
 
     return (
         <div>
             {!isNaN(rating) &&
-                <span className='rating'>
+                <span className={cl.rating}>
                 Рейтинг: {stars} {rating}
-            </span>
+                </span>
             }
             <ProductCreateComments
             />
             <div>
                 <TransitionGroup>
-                    {comments.length && comments.map(comment =>
+                    {(comments.length > 0) && comments.map(comment =>
                         <CSSTransition
                             key={comment.id}
                             timeout={500}
-                            classNames="comment"
+                            classNames={cl.comment}
                         >
                             <CommentItem
                                 comment={comment}
@@ -34,7 +35,7 @@ const ProductComments: React.FC<ProductCommentsProps> = ({comments, productId}) 
                 </TransitionGroup>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default ProductComments;
+export default ProductComments

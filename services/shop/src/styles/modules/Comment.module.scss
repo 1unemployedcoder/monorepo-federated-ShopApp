@@ -23,18 +23,6 @@
     }
 }
 
-.rating {
-    font-size: $star-size;
-
-    .star {
-        color: $star-color;
-    }
-
-    .filled {
-        color: $filled-star-color;
-    }
-}
-
 .formComment {
     display: flex;
     flex-direction: column;
@@ -46,6 +34,20 @@
         text-align: start;
     }
 }
+
+.rating {
+    font-size: $star-size;
+}
+
+.star {
+    color: $star-color;
+}
+
+.filled {
+    color: $filled-star-color;
+}
+
+.comment {}
 
 .comment-enter, .comment-exit {
     opacity: 0;

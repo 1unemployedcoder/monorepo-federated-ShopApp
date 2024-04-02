@@ -1,0 +1,14 @@
+@import "@/styles/variables/variables";
+@import "~normalize.css";
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('@/assets/fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+}
+
+.App {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Nunito', serif;
+}

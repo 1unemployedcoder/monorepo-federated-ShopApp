@@ -1,7 +1,7 @@
 import Carousel from "react-spring-3d-carousel";
 import React, {useState, useEffect, useMemo} from "react";
 import { config } from "react-spring";
-import {CardsArray, CarouselItemProps} from "../../../@types/typesComponents";
+import {CardsArray, CarouselItemProps} from "@/@types/typesComponents";
 
 const CarouselCard: React.FC<CarouselItemProps> = ({cardsArray, height, width, margin, offset, showArrowsState}) => {
     const table = useMemo(() => {

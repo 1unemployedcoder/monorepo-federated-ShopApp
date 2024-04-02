@@ -1,10 +1,10 @@
 import React from 'react';
-import {useTotalPrice} from "../../../hooks/useCalcProducts";
-import {changeCountCart, delCartItem} from "../../../redux/slices/cartSlice";
+import {useTotalPrice} from "@/hooks/useCalcProducts";
+import {changeCountCart, delCartItem} from "@/redux/slices/cartSlice";
 import {useNavigate} from "react-router-dom";
 import BtnOrdinary from "../../ui/styledComponents/styledButton/BtnOrdinary";
-import {CartItemProps} from "../../../@types/typesComponents";
-import {useAppDispatch} from "../../../redux/store";
+import {CartItemProps} from "@/@types/typesComponents";
+import {useAppDispatch} from "@/redux/store";
 
 const CartItem: React.FC<CartItemProps> = ({product}) => {
     const totalPrice = useTotalPrice(product.count, product.price)
