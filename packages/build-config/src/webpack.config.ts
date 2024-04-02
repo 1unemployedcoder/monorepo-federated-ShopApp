@@ -17,7 +17,7 @@ export function buildWebpack (options: BuildOptions): webpack.Configuration {
             clean: true,
             chunkFilename: isDev ? 'chunk-[name].[contenthash].js' : '[contenthash].js'
         },
-        devtool: isDev ? 'eval-cheap-module-source-map' : 'source-map',
+        devtool: isDev ? 'eval-cheap-module-source-map' : false,
         devServer: isDev ? buildDevServer(options) : undefined,
         plugins: buildPlugins(options),
         module: {

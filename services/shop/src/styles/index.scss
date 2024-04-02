@@ -1,10 +1,6 @@
+@import "fonts";
 @import "variables/variables";
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import "~normalize.css";
 
 #shop {
     display: flex;
