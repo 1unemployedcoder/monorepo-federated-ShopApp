@@ -1,11 +1,11 @@
 import React from 'react'
-import {Outlet, useOutlet} from 'react-router-dom'
+import { Outlet, useOutlet } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import cl from './styles/modules/App.module.scss'
 import { store } from '@/redux/store'
 import { Provider } from 'react-redux'
-import MainPage from "@/pages/MainPage";
-import {useOutletEmpty} from "@/hooks/useOutletEmpty";
+import MainPage from '@/pages/MainPage'
+import { useOutletEmpty } from '@/hooks/useOutletEmpty'
 
 export const App = (): React.ReactNode => {
     const outlet = useOutlet()
