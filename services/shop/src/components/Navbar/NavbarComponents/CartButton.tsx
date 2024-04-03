@@ -1,11 +1,11 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import {useTotalProducts} from "../../../hooks/useCalcProducts";
+import {useTotalProducts} from "@/hooks/useCalcProducts";
 import {useNavigate} from "react-router-dom";
 import BtnOrdinary from "../../ui/styledComponents/styledButton/BtnOrdinary";
-import {cartSelector} from "../../../redux/slices/cartSlice";
-import {CartProduct} from "../../../@types/types";
-
+import {cartSelector} from "@/redux/slices/cartSlice";
+import {CartProduct} from "@/@types/types";
+import cl from '@/styles/modules/Navbar.module.scss'
 const CartButton = () => {
     const cartState = useSelector(cartSelector)
     const cart = Object.values(cartState)
@@ -15,7 +15,7 @@ const CartButton = () => {
         <div>
             <BtnOrdinary onClick={() => navigate('/shop/cart/')}>
                 {totalCount
-                    ? <div className='gold'>
+                    ? <div className={cl.gold}>
                         {totalPrice}$
                     </div>
                     : <>Корзина</>
@@ -23,7 +23,7 @@ const CartButton = () => {
             </BtnOrdinary>
             {totalCount
                 ? <div>
-                        <span className='cartCount'>
+                        <span className={cl.cartCount}>
                             {totalCount}
                         </span>
                 </div>

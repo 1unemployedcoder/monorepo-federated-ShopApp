@@ -1,10 +1,11 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
-
+import cat from '@/styles/modules/Categories.module.scss'
+import news from '@/styles/modules/News.module.scss'
 const NewsSkeleton: React.FC = (props) => (
-    <div className='categories'>
+    <div className={cat.categories}>
         <ContentLoader
-            className='news'
+            className={news.news}
             speed={1}
             width={602}
             height={250}

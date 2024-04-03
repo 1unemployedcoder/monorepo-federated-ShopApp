@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import InputMain from "../../ui/styledComponents/styledInput/InputMain";
 import {useSelector} from "react-redux";
-import {RootState} from "../../../redux/store";
+import {RootState} from "@/redux/store";
 import {useNavigate} from "react-router-dom";
 import BtnOrdinary from "../../ui/styledComponents/styledButton/BtnOrdinary";
 

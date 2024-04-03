@@ -22,6 +22,17 @@
     }
 }
 
+
+.cartCount {
+    font-size: 0.7rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 36.5rem;
+    background: #ff8200;
+    border-radius: 0.5rem;
+    padding: 0.4rem;
+}
+
 .loginModal {
     width: 100%;
     text-align: center;
@@ -38,13 +49,9 @@
     }
 }
 
-
-.cartCount {
-    font-size: 0.7rem;
-    position: absolute;
-    top: 0.5rem;
-    right: 36.5rem;
-    background: #ff8200;
-    border-radius: 0.5rem;
-    padding: 0.4rem;
+.white {
+    color: white !important;
+}
+.gold {
+    color: #ff8200;
 }

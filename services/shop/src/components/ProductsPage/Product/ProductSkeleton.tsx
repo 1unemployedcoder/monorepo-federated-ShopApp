@@ -1,9 +1,9 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
-
+import cl from '@/styles/modules/ProductItem.module.scss'
 const ProductSkeleton: React.FC = (props) => (
     <ContentLoader
-        className='post'
+        className={cl.post}
         speed={1}
         width={921}
         height={202}

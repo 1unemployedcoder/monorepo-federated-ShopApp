@@ -21,7 +21,7 @@ const NewsItem: React.FC<NewsItemProps> = ({ author, img, desc, date, title, id,
                 <p>{date}</p>
                 <p>{author}</p>
                 {!isOpen &&
-                    <p className='gold'>&#128172;{comms}</p>
+                    <p className={cl.gold}>&#128172;{comms}</p>
                 }
             </div>
             <img className={cl.news__img}

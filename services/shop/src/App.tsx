@@ -1,7 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
-import './styles/styles'
 import cl from './styles/modules/App.module.scss'
 import { store } from '@/redux/store'
 import { Provider } from 'react-redux'
