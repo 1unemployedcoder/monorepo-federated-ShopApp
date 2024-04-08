@@ -34,7 +34,7 @@ const NewsItem: React.FC<NewsItemProps> = ({ author, img, desc, date, title, id,
                 {desc}
             </p>
             {!isOpen &&
-                <BtnOrdinary className={cl.news__btn} onClick={() => { navigate(`/news/${id}`) }}>
+                <BtnOrdinary className={cl.news__btn} onClick={() => { navigate(`/shop/news/${id}`) }}>
                     Открыть
                 </BtnOrdinary>
             }

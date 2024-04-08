@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({ image, name, id }) => {
             <img src={image} alt={name} />
             <h2>{name}</h2>
             <div className={Styles.btnn}>
-                <BtnPrimary onClick={() => navigate(`/products/${name}/${id}`)}>
+                <BtnPrimary onClick={() => navigate(`/shop/products/${name}/${id}`)}>
                     Открыть
                 </BtnPrimary>
             </div>

@@ -13,7 +13,7 @@ const SearchNav = () => {
     const goingSearch = () => {
         if (search.trim() !== '') {
             const categoryParam = currentCategory || 'all'
-            navigate(`/products/${categoryParam}?search=${search}`)
+            navigate(`/shop/products/${categoryParam}?search=${search}`)
             setSearch('')
         }
     }
