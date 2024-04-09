@@ -1,9 +1,12 @@
-import { Outlet } from 'react-router-dom'
 export const App = () => {
     return (
         <div>
-            <h1>Гнида</h1>
-            <Outlet />
+            Админ панель
+            <form>
+                <input type="text"/>
+                <input type="text"/>
+                <button>Создать</button>
+            </form>
         </div>
     )
 }
