@@ -12,7 +12,7 @@ const routes = [
         element: <App />,
         children: [
             {
-                path: '/shop/products/:type/:id',
+                path: '/shop/products/:name/:id',
                 element: <ProductPage />
             },
             {
