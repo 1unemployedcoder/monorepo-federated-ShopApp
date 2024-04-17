@@ -1,10 +1,8 @@
-import {createSlice} from "@reduxjs/toolkit";
-import {CategorySlice} from "../../@types/reduxTypes";
+import { createSlice } from '@reduxjs/toolkit'
+import { type CategorySlice } from '@/@types/reduxTypes'
 
 const initialState: CategorySlice = {
-    value: {
-        value: 'all'
-    },
+    id: NaN,
     name: 'Все',
     categories: []
 }
@@ -13,11 +11,11 @@ const categoriesSlice = createSlice({
     name: 'categories',
     initialState,
     reducers: {
-        setCategory(state, action) {
-            state.value = action.payload.value
+        setCategory (state, action) {
             state.name = action.payload.name
+            state.id = action.payload.id
         },
-        setCategories(state, action){
+        setCategories (state, action) {
             state.categories = action.payload
         }
     }

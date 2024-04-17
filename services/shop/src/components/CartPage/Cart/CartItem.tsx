@@ -13,10 +13,10 @@ const CartItem: React.FC<CartItemProps> = ({ product }) => {
 
     return (
         <div className={cl.post}>
-            <div onClick={() => { navigate(`/products/${product.gadget}/${product.id}`) }} className={cl.post__content}>
-                <img src={product.img} alt={product.gadget}/>
+            <div onClick={() => { navigate(`/products/${product.name}/${product.id}`) }} className={cl.post__content}>
+                <img src={product.img} alt={product.name}/>
                 <div>
-                    <strong>{product.gadget}</strong>
+                    <strong>{product.name}</strong>
                     <div className={cl.post__btnsCount} onClick={e => { e.stopPropagation() }}>
                         <BtnOrdinary onClick={() => dispatch(changeCountCart({ id: product.id, value: 'minus' }))}>-</BtnOrdinary>
                         {product.count}

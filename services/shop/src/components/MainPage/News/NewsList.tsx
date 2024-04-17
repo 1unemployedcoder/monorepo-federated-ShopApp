@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useFetching } from '@/hooks/useFetching'
-import ProductService from '../../../API/ProductService'
+import { getNews } from '@/API/ProductService'
 import NewsItem from './NewsItem'
 import ConditionalContent from '../../ConditionalContent'
 import NewsSkeleton from './NewsSkeleton'
@@ -9,7 +9,8 @@ import { type NewsPost } from '@/@types/types'
 const NewsList = () => {
     const [news, setNews] = useState<NewsPost[]>([])
     const [newsFetching, isLoading, error, setError] = useFetching(async () => {
-        const response = await ProductService.getNews()
+        const response = await getNews()
+        // @ts-ignore
         setNews(response)
     })
 

@@ -20,7 +20,7 @@ const ProductItem: React.FC<ProductObjectProps> = ({ product }) => {
     const addToCart = (product: MergeProductComments) => {
         dispatch(setCartItem(product))
         if (!toast.isActive(product.id, product.id)) {
-            toast.success(`${product.gadget} успешно добавлен в корзину`, {
+            toast.success(`${product.name} успешно добавлен в корзину`, {
                 toastId: product.id
             })
         }
@@ -29,11 +29,11 @@ const ProductItem: React.FC<ProductObjectProps> = ({ product }) => {
     return (
         <div className={cl.post}>
             <ToastContainer containerId={product.id} position="top-center" autoClose={2000}/>
-            <div onClick={() => { navigate(`/shop/products/${product.gadget}/${product.id}`) }} className={cl.post__content}>
-                <img src={product.img} alt={product.gadget}/>
+            <div onClick={() => { navigate(`/shop/products/${product.name}/${product.id}`) }} className={cl.post__content}>
+                <img src={product.img} alt={product.name}/>
                 <div className={cl.post__info}>
                     <div className={cl.post__open}>
-                        <strong>{product.gadget}</strong>
+                        <strong>{product.name}</strong>
                         <div className={cl.post__description}>
                             {product.desc}
                         </div>

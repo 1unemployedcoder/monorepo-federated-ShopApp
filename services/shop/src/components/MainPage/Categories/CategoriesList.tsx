@@ -14,22 +14,20 @@ const CategoriesList: React.FC<CategoriesProps> = ({ categories }) => {
         dispatch(setCategories(categories))
     }, [categories])
 
-    const newCategory = (type: string, name: string) => {
+    const newCategory = (name: string, id: number) => {
         dispatch(setCategory({
-            value: {
-                value: type
-            },
-            name
+            name,
+            id
         }))
         localStorage.setItem('currentCategoryName', name)
-        navigate(`/shop/products/${type}/`)
+        navigate(`/shop/products/?type=${id}`)
     }
 
     return (
         <div className={cl.categories}>
             {categories.map(category =>
-                <BtnPrimary key={category.value}
-                    onClick={() => { newCategory(category.value, category.name) }}>{category.name}</BtnPrimary>
+                <BtnPrimary key={category.name}
+                    onClick={() => { newCategory(category.name, category.id) }}>{category.name}</BtnPrimary>
             )}
         </div>
     )

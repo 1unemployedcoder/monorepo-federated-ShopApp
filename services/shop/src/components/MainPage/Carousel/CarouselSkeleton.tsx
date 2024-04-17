@@ -1,5 +1,5 @@
-import React from "react"
-import ContentLoader from "react-content-loader"
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 import cat from '@/styles/modules/Categories.module.scss'
 const CarouselSkeleton: React.FC = (props) => (
     <div className={cat.categories}>

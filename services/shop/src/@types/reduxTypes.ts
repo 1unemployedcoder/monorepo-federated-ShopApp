@@ -1,36 +1,34 @@
-import {Category, MergeProductComments, SortType} from "./types";
+import { type Category, type MergeProductComments, type SortType } from './types'
 
 export enum Status {
-    LOADING= 'loading',
-    SUCCESS='success',
-    ERROR='error'
+    LOADING = 'loading',
+    SUCCESS = 'success',
+    ERROR = 'error'
 }
 
 export interface CategorySlice {
-    value: {
-        value: string
-    }
+    id: number
     name: string
     categories: Category[]
 }
 
 export interface productSliceInitState {
-    items: MergeProductComments[],
-    headers: Object[],
+    items: MergeProductComments[]
+    headers: Object[]
     status: Status
 }
 
-export type cartCountValue = "plus" | "minus"
+export type cartCountValue = 'plus' | 'minus'
 
 export interface fetchProductsSlice {
     search: string | null
     sort: SortType
     limit: number
     page: number
-    type: String | undefined
+    typeId: string | undefined
 }
 
 export interface fetchedProducts {
-    data: MergeProductComments[],
-    headers: Object[],
+    data: MergeProductComments[]
+    headers: Object[]
 }

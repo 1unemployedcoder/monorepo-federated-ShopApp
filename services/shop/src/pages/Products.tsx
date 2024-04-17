@@ -37,7 +37,7 @@ function Products () {
     }, [dispatch])
 
     useEffect(() => {
-        dispatch(fetchProducts({ search, sort, limit, page, type }))
+        dispatch(fetchProducts({ search, sort, limit, page, typeId: type }))
     }, [sort, page, search])
 
     useEffect(() => {

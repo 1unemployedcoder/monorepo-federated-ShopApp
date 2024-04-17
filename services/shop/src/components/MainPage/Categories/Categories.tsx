@@ -1,21 +1,22 @@
-import React, {useEffect, useState} from 'react';
-import {useFetching} from "@/hooks/useFetching";
-import ProductService from "../../../API/ProductService";
-import ConditionalContent from "../../ConditionalContent";
-import CategorySkeleton from "./CategorySkeleton";
-import CategoriesList from "./CategoriesList";
-import {Category} from "@/@types/types";
+import React, { useEffect, useState } from 'react'
+import { useFetching } from '@/hooks/useFetching'
+import { getCategories } from '../../../API/ProductService'
+import ConditionalContent from '../../ConditionalContent'
+import CategorySkeleton from './CategorySkeleton'
+import CategoriesList from './CategoriesList'
+import { type Category } from '@/@types/types'
 
 const Categories = () => {
     const [categories, setCategories] = useState<Category[]>([])
     const [fetchCategories, isLoadingCategories, errorCategories, setErrorCategories] = useFetching(async () => {
-        const response = await ProductService.getCategories()
+        const response = await getCategories()
+        // @ts-ignore
         setCategories(response)
     })
 
     useEffect(() => {
         fetchCategories()
-    }, [errorCategories]);
+    }, [errorCategories])
 
     return (
         <ConditionalContent
@@ -27,7 +28,7 @@ const Categories = () => {
             search={null}>
             <CategoriesList categories={categories} />
         </ConditionalContent>
-    );
-};
+    )
+}
 
-export default Categories;
+export default Categories

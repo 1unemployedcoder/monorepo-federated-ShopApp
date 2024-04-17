@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useFetching } from '@/hooks/useFetching'
-import ProductService from '../../../API/ProductService'
+import { getPopular } from '@/API/ProductService'
 import Card from '../../ui/card/Card'
 import CarouselCard from './CarouselItem'
 import ConditionalContent from '../../ConditionalContent'
@@ -10,7 +10,8 @@ import { type Product } from '@/@types/types'
 const Carousel = () => {
     const [carousel, setCarousel] = useState<Product[]>([])
     const [fetchCarousel, isLoadingCarousel, errorCarousel, setErrorCarousel] = useFetching(async () => {
-        const response = await ProductService.getPopular()
+        const response = await getPopular()
+        // @ts-ignore
         setCarousel(response)
     })
 
@@ -25,7 +26,7 @@ const Carousel = () => {
                 <Card
                     id={card.id}
                     image={card.img}
-                    name={card.gadget}
+                    name={card.name}
                 />
             )
         }

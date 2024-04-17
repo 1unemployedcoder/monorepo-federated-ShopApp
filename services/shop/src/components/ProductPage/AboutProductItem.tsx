@@ -16,7 +16,7 @@ const AboutProductItem: React.FC<ProductObjectProps> = ({ product }) => {
     const addToCart = (product: MergeProductComments) => {
         dispatch(setCartItem(product))
         if (!toast.isActive(2, 1)) {
-            toast.success(`${product.gadget} успешно добавлен в корзину`, {
+            toast.success(`${product.name} успешно добавлен в корзину`, {
                 toastId: 2
             })
         }

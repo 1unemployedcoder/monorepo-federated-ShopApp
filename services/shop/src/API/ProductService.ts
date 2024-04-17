@@ -1,35 +1,39 @@
-import AjaxAPI from "./ajaxAPI";
-import {fetchedProducts, fetchProductsSlice} from "../@types/reduxTypes";
-import {Category, gettedNewsById, gettedProductById, NewsPost, Product} from "../@types/types";
+import { type fetchedProducts, type fetchProductsSlice } from '../@types/reduxTypes'
+import {
+    type Category,
+    type gettedNewsById,
+    type gettedProductById,
+    type NewsPost,
+    type Product
+} from '../@types/types'
+import axios from 'axios'
 
-export default class ProductService {
-    static async getAll({ search, sort, limit, page, type }: fetchProductsSlice) {
-        return await AjaxAPI.getGadgetsComments({
-            gadget: search,
-            sort: sort,
-            limit: limit,
-            page: page,
-            type: type
-        }) as fetchedProducts
-    }
+export async function getAll ({ search, sort, limit, page, typeId }: fetchProductsSlice) {
+    const response = await axios.get('http://localhost:5000/api/products/')
+    return response.data as fetchedProducts
+}
 
-    static async getProductById(id: number) {
-        return await AjaxAPI.getGadget(id) as gettedProductById
-    }
+export async function getProductById (id: number) {
+    const response = await axios.get(`http://localhost:5000/api/products/${id}`)
+    return response.data as gettedProductById
+}
 
-    static async getCategories() {
-        return await AjaxAPI.getCategories() as Category[]
-    }
+export async function getCategories () {
+    const response = await axios.get('http://localhost:5000/api/type')
+    return response.data as Category
+}
 
-    static async getPopular(){
-        return await AjaxAPI.getPopular() as Product[]
-    }
+export async function getPopular () {
+    const response = await axios.get('http://localhost:5000/api/products/')
+    return response.data.rows as fetchedProducts
+}
 
-    static async getNews(){
-        return await AjaxAPI.getNews() as NewsPost[]
-    }
+export async function getNews () {
+    const response = await axios.get('http://localhost:5000/api/news/')
+    return response.data.rows as NewsPost
+}
 
-    static async getNewsById(id: number){
-        return await AjaxAPI.getNewsById(id) as gettedNewsById
-    }
+export async function getNewsById (id: number) {
+    const response = await axios.get(`http://localhost:5000/api/news/${id}`)
+    return response.data as gettedNewsById
 }

@@ -1,36 +1,36 @@
-import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
-import {useFetching} from "@/hooks/useFetching";
-import ProductService from "../API/ProductService";
-import ProductComments from "../components/ProductPage/Comments/ProductComments";
-import NewsItem from "../components/MainPage/News/NewsItem";
-import ConditionalContent from "../components/ConditionalContent";
-import PageSkeleton from "../components/ui/skeletonLoader/PageSkeleton";
-import {NewsCommentsTypes, NewsPost} from "@/@types/types";
-import {Helmet} from "react-helmet";
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { useFetching } from '@/hooks/useFetching'
+import ProductComments from '../components/ProductPage/Comments/ProductComments'
+import NewsItem from '../components/MainPage/News/NewsItem'
+import ConditionalContent from '../components/ConditionalContent'
+import PageSkeleton from '../components/ui/skeletonLoader/PageSkeleton'
+import { type NewsCommentsTypes, type NewsPost } from '@/@types/types'
+import { Helmet } from 'react-helmet'
 import cl from '@/styles/modules/News.module.scss'
+import { getNewsById } from '@/API/ProductService'
 
 const NewsItemPage = () => {
-    const {id} = useParams() //id новости
+    const { id } = useParams() // id новости
     const [newsPost, setNewsPost] = useState<NewsPost>({
-        author: "",
+        author: '',
         commentsIds: [],
-        date: "",
-        desc: "",
+        date: '',
+        desc: '',
         id: 0,
-        img: "",
-        title: ""
+        img: '',
+        title: ''
     })
     const [comments, setComments] = useState<NewsCommentsTypes[]>([])
     const [fetchingNews, isLoading, error, setError] = useFetching(async () => {
-        const data = await ProductService.getNewsById(Number(id))
+        const data = await getNewsById(Number(id))
         setNewsPost(data.news)
         setComments(data.comments)
     })
 
     useEffect(() => {
         fetchingNews()
-    }, [error]);
+    }, [error])
     return (
         <div className={cl.newsPage}>
             <Helmet>
@@ -46,20 +46,20 @@ const NewsItemPage = () => {
                 SkeletonComponent={PageSkeleton}
                 search={null}
             >
-            <NewsItem
-                id={newsPost.id}
-                img={newsPost.img}
-                title={newsPost.title}
-                desc={newsPost.desc}
-                author={newsPost.author}
-                date={newsPost.date}
-                isOpen={true}
-                comms={NaN}
-            />
-            <ProductComments comments={comments} productId={newsPost.id}/>
+                <NewsItem
+                    id={newsPost.id}
+                    img={newsPost.img}
+                    title={newsPost.title}
+                    desc={newsPost.desc}
+                    author={newsPost.author}
+                    date={newsPost.date}
+                    isOpen={true}
+                    comms={NaN}
+                />
+                <ProductComments comments={comments} productId={newsPost.id}/>
             </ConditionalContent>
         </div>
-    );
-};
+    )
+}
 
-export default NewsItemPage;
+export default NewsItemPage

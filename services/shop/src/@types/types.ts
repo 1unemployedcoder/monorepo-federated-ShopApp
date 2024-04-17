@@ -1,24 +1,25 @@
-import React from "react";
+import type React from 'react'
 
 // Интерфейсы
 
+export interface Product {
+    categoryId: number
+    commentIds: number[]
+    userId?: number
+    desc: string
+    name: string
+    id: number
+    img: string
+    price: number
+}
+
 export interface Category {
-    value: string
+    id: number
     name: string
 }
 
-export interface Product {
-    category: Category;
-    commentIds: number[];
-    desc: string;
-    gadget: string;
-    id: number;
-    img: string;
-    price: number;
-}
-
 export interface CartProduct extends Product {
-    count: number;
+    count: number
 }
 
 export interface NewsPost {
@@ -31,7 +32,7 @@ export interface NewsPost {
     title: string
 }
 
-export interface NewsCommentsTypes{
+export interface NewsCommentsTypes {
     name: string
     desc: string
     id: number
@@ -51,7 +52,7 @@ export interface gettedNewsById {
     comments: NewsCommentsTypes[]
 }
 
-export interface ProductCommentsTypes extends NewsCommentsTypes{
+export interface ProductCommentsTypes extends NewsCommentsTypes {
     rate: number
 }
 
@@ -62,15 +63,13 @@ export interface IFButtonProps {
     children?: React.ReactNode
 }
 
-export interface MyHeaders {
-    [key: string]: string;
-}
+export type MyHeaders = Record<string, string>
 
 // Типы
 
 export type CallbackFunction = () => Promise<void>
 
-export type ArrayFetch = [() => Promise<NewsPost|Product>, boolean, string, React.Dispatch<React.SetStateAction<string>>]
+export type ArrayFetch = [() => Promise<NewsPost | Product>, boolean, string, React.Dispatch<React.SetStateAction<string>>]
 
 export type MainTabs = 'popular' | 'news'
 
