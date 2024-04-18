@@ -14,8 +14,6 @@ const ProductPage = () => {
     const [product, setProduct] = useState<MergeProductComments>({
         productComments: [],
         categoryId: 0,
-        userId: 0,
-        commentIds: [],
         description: '',
         name: '',
         id: 0,

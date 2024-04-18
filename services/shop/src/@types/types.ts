@@ -4,8 +4,6 @@ import type React from 'react'
 
 export interface Product {
     categoryId: number
-    commentIds: number[]
-    userId?: number
     description: string
     name: string
     id: number
@@ -23,10 +21,10 @@ export interface CartProduct extends Product {
 }
 
 export interface NewsPost {
-    author: string
-    commentsIds: number[]
+    userId: number
+    user: string
     date: string
-    desc: string
+    description: string
     id: number
     img: string
     title: string
@@ -36,6 +34,7 @@ export interface NewsCommentsTypes {
     user: string
     description: string
     id: number
+    userId: number
 }
 
 export interface MergeProductComments extends Product {

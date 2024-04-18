@@ -8,9 +8,7 @@ const Cart = () => {
     const dispatch = useAppDispatch()
     useEffect(() => {
         dispatch(setCategory({
-            value: {
-                value: 'all'
-            },
+            id: '',
             name: 'Все'
         }))
     }, [dispatch])

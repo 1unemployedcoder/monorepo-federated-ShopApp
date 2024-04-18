@@ -9,7 +9,7 @@ const SearchNav = () => {
     const navigate = useNavigate()
     const [search, setSearch] = useState<string>('')
     const currentCategoryName = useSelector((state: RootState) => state.categories.name)
-    const currentCategory = useSelector((state: RootState) => state.categories.id)
+    const currentCategory = useSelector((state: RootState) => state.categories.id) || ''
     const goingSearch = () => {
         if (search.trim() !== '') {
             navigate(`/shop/products/?type=${currentCategory}&search=${search}`)

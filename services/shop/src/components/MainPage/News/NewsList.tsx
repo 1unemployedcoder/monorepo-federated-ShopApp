@@ -29,13 +29,13 @@ const NewsList = () => {
                 {news.map(neww =>
                     <NewsItem
                         key={neww.id}
-                        author={neww.author}
+                        author={neww.user}
                         date={neww.date}
-                        desc={neww.desc}
+                        desc={neww.description}
                         img={neww.img}
                         title={neww.title}
                         id={neww.id}
-                        comms={neww.commentsIds.length}
+                        comms={1}
                         isOpen={false}
                     />
                 )}

@@ -13,19 +13,18 @@ import { getNewsById } from '@/API/ProductService'
 const NewsItemPage = () => {
     const { id } = useParams() // id новости
     const [newsPost, setNewsPost] = useState<NewsPost>({
-        author: '',
-        commentsIds: [],
+        description: '',
+        user: '',
+        userId: 0,
         date: '',
-        desc: '',
         id: 0,
         img: '',
         title: ''
     })
-    const [comments, setComments] = useState<NewsCommentsTypes[]>([])
     const [fetchingNews, isLoading, error, setError] = useFetching(async () => {
         const data = await getNewsById(Number(id))
-        setNewsPost(data.news)
-        setComments(data.comments)
+        // @ts-ignore
+        setNewsPost(data)
     })
 
     useEffect(() => {
@@ -50,13 +49,13 @@ const NewsItemPage = () => {
                     id={newsPost.id}
                     img={newsPost.img}
                     title={newsPost.title}
-                    desc={newsPost.desc}
-                    author={newsPost.author}
+                    desc={newsPost.description}
+                    author={newsPost.user}
                     date={newsPost.date}
                     isOpen={true}
                     comms={NaN}
                 />
-                <ProductComments comments={comments} productId={newsPost.id}/>
+                <ProductComments comments={[]} productId={newsPost.id}/>
             </ConditionalContent>
         </div>
     )

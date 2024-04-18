@@ -20,7 +20,7 @@ const CartList = () => {
         return (
             <div>
                 <h1 className={cl.title}>Корзина пуста</h1>
-                <BtnPrimary onClick={() => { navigate('/') }}>На главную</BtnPrimary>
+                <BtnPrimary onClick={() => { navigate('/shop/') }}>На главную</BtnPrimary>
             </div>
         )
     }
