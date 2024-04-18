@@ -7,7 +7,7 @@ export enum Status {
 }
 
 export interface CategorySlice {
-    id: number
+    id: string
     name: string
     categories: Category[]
 }
@@ -25,7 +25,7 @@ export interface fetchProductsSlice {
     sort: SortType
     limit: number
     page: number
-    typeId: string | undefined
+    typeId: string
 }
 
 export interface fetchedProducts {

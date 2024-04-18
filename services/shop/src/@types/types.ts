@@ -73,4 +73,4 @@ export type ArrayFetch = [() => Promise<NewsPost | Product>, boolean, string, Re
 
 export type MainTabs = 'popular' | 'news'
 
-export type SortType = 'desc' | 'asc' | ''
+export type SortType = 'price_desc' | 'price_asc' | ''

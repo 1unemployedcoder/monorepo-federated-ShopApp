@@ -9,7 +9,8 @@ import {
 import axios from 'axios'
 
 export async function getAll ({ search, sort, limit, page, typeId }: fetchProductsSlice) {
-    const response = await axios.get('http://localhost:5000/api/products/')
+    console.log( search, sort, limit, page, typeId )
+    const response = await axios.get(`http://localhost:5000/api/products/?typeId=${typeId}&search=${search}&limit=${limit}&page=${page}&sortBy=${sort}`)
     return response.data as fetchedProducts
 }
 

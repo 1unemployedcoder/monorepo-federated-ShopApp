@@ -14,11 +14,10 @@ import { Helmet } from 'react-helmet'
 import cl from '@/styles/modules/Products.module.scss'
 
 function Products () {
-    const { type } = useParams()
     const location = useLocation()
     const searchParams = new URLSearchParams(location.search)
-    const search = searchParams.get('search')
-    const currentTypeID = searchParams.get('type')
+    const search = searchParams.get('search') || ''
+    const currentTypeID = searchParams.get('type') || ''
     const currentCategoryName = localStorage.getItem('currentCategoryName')
     const [sort, setSort] = useState<SortType>('')
     const [totalPages, setTotalPages] = useState<number>(0)
@@ -37,7 +36,7 @@ function Products () {
     }, [dispatch])
 
     useEffect(() => {
-        dispatch(fetchProducts({ search, sort, limit, page, typeId: type }))
+        dispatch(fetchProducts({ search, sort, limit, page, typeId: currentTypeID }))
     }, [sort, page, search])
 
     useEffect(() => {

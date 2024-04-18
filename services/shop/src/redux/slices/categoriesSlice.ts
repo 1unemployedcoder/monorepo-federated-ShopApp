@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { type CategorySlice } from '@/@types/reduxTypes'
 
 const initialState: CategorySlice = {
-    id: NaN,
+    id: '',
     name: 'Все',
     categories: []
 }
