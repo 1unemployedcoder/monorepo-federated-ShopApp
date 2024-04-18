@@ -6,7 +6,7 @@ export interface Product {
     categoryId: number
     commentIds: number[]
     userId?: number
-    desc: string
+    description: string
     name: string
     id: number
     img: string
@@ -33,13 +33,13 @@ export interface NewsPost {
 }
 
 export interface NewsCommentsTypes {
-    name: string
-    desc: string
+    user: string
+    description: string
     id: number
 }
 
 export interface MergeProductComments extends Product {
-    comments: ProductCommentsTypes[]
+    productComments: ProductCommentsTypes[]
 }
 
 export interface gettedProductById {

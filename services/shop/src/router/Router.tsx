@@ -16,11 +16,7 @@ const routes = [
                 element: <ProductPage />
             },
             {
-                path: '/shop/products/:type/*',
-                element: <Products />
-            },
-            {
-                path: '/shop/products/:type',
+                path: '/shop/products/*',
                 element: <Products />
             },
             {

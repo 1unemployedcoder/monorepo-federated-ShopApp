@@ -9,10 +9,10 @@ const CommentItem: React.FC<CommentItemProps> = ({comment}) => {
             <div className={cl.comment__modifier}>
                 <div>
                     <div className={cl.comment__body}>
-                        <b>{comment.name}</b>:
+                        <b>{comment.user}</b>:
                     </div>
                     <div className={cl.comment__body}>
-                        {comment.desc}
+                        {comment.description}
                         {"rate" in comment && !!comment.rate &&
                             <div className={cl.comment__rate}>
                                 <b>Оценка: {comment.rate}/5</b>

@@ -14,7 +14,7 @@ export interface CategorySlice {
 
 export interface productSliceInitState {
     items: MergeProductComments[]
-    headers: Object[]
+    count: number
     status: Status
 }
 
@@ -29,6 +29,6 @@ export interface fetchProductsSlice {
 }
 
 export interface fetchedProducts {
-    data: MergeProductComments[]
-    headers: Object[]
+    rows: MergeProductComments[]
+    count: number
 }

@@ -18,6 +18,7 @@ function Products () {
     const location = useLocation()
     const searchParams = new URLSearchParams(location.search)
     const search = searchParams.get('search')
+    const currentTypeID = searchParams.get('type')
     const currentCategoryName = localStorage.getItem('currentCategoryName')
     const [sort, setSort] = useState<SortType>('')
     const [totalPages, setTotalPages] = useState<number>(0)
@@ -25,14 +26,13 @@ function Products () {
     const [page, setPage] = useState<number>(1)
 
     const dispatch = useAppDispatch()
-    const { items, headers, status } = useSelector((state: RootState) => state.products)
+    const { items, count, status } = useSelector((state: RootState) => state.products)
+
 
     useEffect(() => {
         dispatch(setCategory({
-            value: {
-                value: type
-            },
-            name: currentCategoryName
+            name: currentCategoryName,
+            id: currentTypeID
         }))
     }, [dispatch])
 
@@ -45,10 +45,7 @@ function Products () {
     }, [sort, search])
 
     useEffect(() => {
-        const totalCount = headers as unknown as MyHeaders
-        if ('x-total-count' in totalCount) {
-            setTotalPages(totalPagesCalc(parseInt(totalCount['x-total-count']), limit))
-        }
+        setTotalPages(totalPagesCalc(count, limit))
     }, [items])
 
     return (

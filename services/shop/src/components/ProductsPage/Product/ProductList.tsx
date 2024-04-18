@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductItem from "./ProductItem";
 import {ToastContainer} from "react-toastify";
-import {ProductArrayProps} from "../../../@types/typesComponents";
+import {ProductArrayProps} from "@/@types/typesComponents";
 
 const ProductList: React.FC<ProductArrayProps> = ({products}) => {
 

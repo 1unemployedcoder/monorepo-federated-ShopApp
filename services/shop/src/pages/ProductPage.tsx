@@ -12,11 +12,11 @@ import { getProductById } from '@/API/ProductService'
 
 const ProductPage = () => {
     const [product, setProduct] = useState<MergeProductComments>({
-        comments: [],
+        productComments: [],
         categoryId: 0,
         userId: 0,
         commentIds: [],
-        desc: '',
+        description: '',
         name: '',
         id: 0,
         img: '',
@@ -50,7 +50,7 @@ const ProductPage = () => {
             >
                 <strong className={cl.productTitle}>{product.name}</strong>
                 <AboutProductItem product={product}/>
-                <ProductComments comments={[]} productId={product.id}/>
+                <ProductComments comments={product.productComments} productId={product.id}/>
             </ConditionalContent>
         </div>
     )

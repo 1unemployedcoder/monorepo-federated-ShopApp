@@ -1,11 +1,11 @@
-import { type fetchedProducts, type fetchProductsSlice } from '../@types/reduxTypes'
+import { type fetchedProducts, type fetchProductsSlice } from '@/@types/reduxTypes'
 import {
     type Category,
     type gettedNewsById,
     type gettedProductById,
     type NewsPost,
     type Product
-} from '../@types/types'
+} from '@/@types/types'
 import axios from 'axios'
 
 export async function getAll ({ search, sort, limit, page, typeId }: fetchProductsSlice) {

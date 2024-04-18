@@ -14,7 +14,6 @@ import cl from '@/styles/modules/ProductItem.module.scss'
 
 const ProductItem: React.FC<ProductObjectProps> = ({ product }) => {
     const isProduct = useCartStatus(product.id)
-    const { commentsLength, rating } = useCommentsRating(product.comments)
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const addToCart = (product: MergeProductComments) => {
@@ -29,13 +28,13 @@ const ProductItem: React.FC<ProductObjectProps> = ({ product }) => {
     return (
         <div className={cl.post}>
             <ToastContainer containerId={product.id} position="top-center" autoClose={2000}/>
-            <div onClick={() => { navigate(`/shop/products/${product.name}/${product.id}`) }} className={cl.post__content}>
+            <div onClick={() => { navigate(`/shop/products/${product.id}`) }} className={cl.post__content}>
                 <img src={product.img} alt={product.name}/>
                 <div className={cl.post__info}>
                     <div className={cl.post__open}>
                         <strong>{product.name}</strong>
                         <div className={cl.post__description}>
-                            {product.desc}
+                            {product.description}
                         </div>
                     </div>
                 </div>
@@ -49,12 +48,6 @@ const ProductItem: React.FC<ProductObjectProps> = ({ product }) => {
                         }
                         <div><b>{product.price}$</b></div>
                     </IFButton>
-                </div>
-                <div className={cl.post__btn}>
-                    <BtnOrdinary>
-                        <div>Отзывы: {commentsLength}</div>
-                        <div>{rating}/5</div>
-                    </BtnOrdinary>
                 </div>
             </div>
         </div>

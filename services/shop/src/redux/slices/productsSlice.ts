@@ -11,7 +11,7 @@ export const fetchProducts = createAsyncThunk<fetchedProducts, fetchProductsSlic
 
 const initialState: productSliceInitState = {
     items: [],
-    headers: [],
+    count: 0,
     status: Status.LOADING // loading, success, error
 }
 
@@ -29,8 +29,8 @@ const productsSlice = createSlice({
             state.items = []
         })
         builder.addCase(fetchProducts.fulfilled, (state, action) => {
-            state.items = action.payload.data
-            state.headers = action.payload.headers
+            state.items = action.payload.rows
+            state.count = action.payload.count
             state.status = Status.SUCCESS
         })
         builder.addCase(fetchProducts.rejected, (state) => {

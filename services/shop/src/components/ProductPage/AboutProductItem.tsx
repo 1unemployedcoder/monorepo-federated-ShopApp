@@ -36,7 +36,7 @@ const AboutProductItem: React.FC<ProductObjectProps> = ({ product }) => {
             </div>
             <div className={cl.productPage__content}>
                 <div className={cl.productPage__desc}>
-                    <div>{product.desc}</div>
+                    <div>{product.description}</div>
                     <div>
                         <IFButton primary={!isProduct} onClick={() => { addToCart(product) }}>
                             {isProduct
