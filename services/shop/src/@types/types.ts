@@ -29,9 +29,11 @@ export interface NewsPost {
     img: string
     title: string
 }
-
+interface User {
+    name: string
+}
 export interface NewsCommentsTypes {
-    user: string
+    user: User
     description: string
     id: number
     userId: number

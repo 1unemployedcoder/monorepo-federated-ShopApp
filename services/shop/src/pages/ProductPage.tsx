@@ -30,7 +30,6 @@ const ProductPage = () => {
     useEffect(() => {
         fetchingPosts()
     }, [error])
-
     return (
         <div className={cl.productComponent}>
             <Helmet>

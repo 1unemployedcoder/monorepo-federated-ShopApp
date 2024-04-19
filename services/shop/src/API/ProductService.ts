@@ -3,12 +3,10 @@ import {
     type Category,
     type gettedNewsById,
     type gettedProductById,
-    type NewsPost,
-    type Product
+    type NewsPost
 } from '@/@types/types'
 import axios from 'axios'
-
-const BackendPath = 'http://localhost:5000/api'
+import { BackendPath } from '@/API/htttpSettings'
 
 export async function getAll ({ search, sort, limit, page, typeId }: fetchProductsSlice) {
     const response = await axios.get(`${BackendPath}/products/?typeId=${typeId}&search=${search}&limit=${limit}&page=${page}&sortBy=${sort}`)
