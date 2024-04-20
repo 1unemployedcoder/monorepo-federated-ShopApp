@@ -2,20 +2,23 @@ import React from 'react'
 import BtnOrdinary from '../../ui/styledComponents/styledButton/BtnOrdinary'
 import { type CommentItemProps } from '@/@types/typesComponents'
 import cl from '@/styles/modules/Comment.module.scss'
+import {useSelector} from "react-redux";
+import type {RootState} from "@/redux/store";
 
 const CommentItem: React.FC<CommentItemProps> = ({ comment }) => {
-    let user
+    const { user, isAuth, status } = useSelector((state: RootState) => state.auth)
+    let userName
     if (comment.user === null) {
-        user = 'NoName'
+        userName = 'NoName'
     } else {
-        user = comment.user.name
+        userName = comment.user.name
     }
     return (
         <div className={cl.commentComponent}>
             <div className={cl.comment__modifier}>
                 <div>
                     <div className={cl.comment__body}>
-                        <b>{user}</b>:
+                        <b>{userName}</b>:
                     </div>
                     <div className={cl.comment__body}>
                         {comment.description}
@@ -27,7 +30,7 @@ const CommentItem: React.FC<CommentItemProps> = ({ comment }) => {
                     </div>
                 </div>
                 <div>
-                    <BtnOrdinary>Удалить</BtnOrdinary>
+                    {userName === user && <BtnOrdinary>Удалить</BtnOrdinary>}
                 </div>
             </div>
         </div>
