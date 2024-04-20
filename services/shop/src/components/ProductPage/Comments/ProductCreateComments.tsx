@@ -4,14 +4,14 @@ import InputMain from '../../ui/styledComponents/styledInput/InputMain'
 import cl from '@/styles/modules/Comment.module.scss'
 import { createProductComment } from '@/API/createDeleteAPI'
 import { useParams } from 'react-router-dom'
-import {useSelector} from "react-redux";
-import type {RootState} from "@/redux/store";
-const ProductCreateComments = () => {
+import {createCommentRefresh} from "@/@types/typesComponents";
+const ProductCreateComments: React.FC<createCommentRefresh> = ({refresh}) => {
     const [comment, setComment] = useState({ description: '', rate: 1 })
     const { id } = useParams()
     const submitComment = async (e: FormEvent) => {
         e.preventDefault()
         const response = await createProductComment(Number(id), comment)
+        await refresh()
         setComment({ description: '', rate: 1 })
     }
     return (

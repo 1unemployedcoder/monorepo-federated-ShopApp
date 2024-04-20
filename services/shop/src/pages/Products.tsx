@@ -27,7 +27,6 @@ function Products () {
     const dispatch = useAppDispatch()
     const { items, count, status } = useSelector((state: RootState) => state.products)
 
-
     useEffect(() => {
         dispatch(setCategory({
             name: currentCategoryName,

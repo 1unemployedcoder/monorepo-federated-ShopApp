@@ -27,7 +27,7 @@ const ProductPage = () => {
     })
 
     useEffect(() => {
-        fetchingPosts()
+        void fetchingPosts()
     }, [error])
     return (
         <div className={cl.productComponent}>
@@ -46,7 +46,7 @@ const ProductPage = () => {
             >
                 <strong className={cl.productTitle}>{product.name}</strong>
                 <AboutProductItem product={product}/>
-                <ProductComments comments={product.productComments} productId={product.id}/>
+                <ProductComments refresh={fetchingPosts} comments={product.productComments}/>
             </ConditionalContent>
         </div>
     )

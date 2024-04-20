@@ -9,7 +9,7 @@ import cl from '@/styles/modules/Comment.module.scss'
 import {useSelector} from "react-redux";
 import type {RootState} from "@/redux/store";
 
-const ProductComments: React.FC<ProductCommentsProps> = ({ comments, productId }) => {
+const ProductComments: React.FC<ProductCommentsProps> = ({ comments, refresh }) => {
     const { rating, stars } = useCommentsRating(comments as ProductCommentsTypes[])
     const { isAuth } = useSelector((state: RootState) => state.auth)
     return (
@@ -19,7 +19,7 @@ const ProductComments: React.FC<ProductCommentsProps> = ({ comments, productId }
                 Рейтинг: {stars} {rating}
                 </span>
             }
-            {isAuth && <ProductCreateComments/>}
+            {isAuth && <ProductCreateComments refresh={refresh}/>}
             <div>
                 <TransitionGroup>
                     {(comments.length > 0) && comments.map(comment =>
@@ -29,6 +29,7 @@ const ProductComments: React.FC<ProductCommentsProps> = ({ comments, productId }
                             classNames={cl.comment}
                         >
                             <CommentItem
+                                refresh={refresh}
                                 comment={comment}
                             />
                         </CSSTransition>

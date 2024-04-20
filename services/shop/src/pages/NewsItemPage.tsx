@@ -54,7 +54,7 @@ const NewsItemPage = () => {
                     isOpen={true}
                     comms={NaN}
                 />
-                <ProductComments comments={[]} productId={newsPost.id}/>
+                <ProductComments comments={[]} refresh={fetchingNews}/>
             </ConditionalContent>
         </div>
     )

@@ -1,5 +1,13 @@
 import React, {ReactNode} from "react";
-import {CartProduct, Category, MergeProductComments, NewsCommentsTypes, ProductCommentsTypes, SortType} from "./types";
+import {
+    CartProduct,
+    Category,
+    MergeProductComments,
+    NewsCommentsTypes, NewsPost,
+    Product,
+    ProductCommentsTypes,
+    SortType
+} from "./types";
 
 export interface ConditionalContentProps {
     data: number
@@ -77,11 +85,12 @@ export interface ErrorRefreshProps {
 
 export interface ProductCommentsProps {
     comments: ProductCommentsTypes[] | NewsCommentsTypes[]
-    productId: number
+    refresh: () => Promise<Product | NewsPost>;
 }
 
 export interface CommentItemProps {
     comment: ProductCommentsTypes | NewsCommentsTypes
+    refresh: () => Promise<Product | NewsPost>
 }
 
 export interface AuthUser {
@@ -119,4 +128,8 @@ export interface CarouselItemProps {
 
 export interface CartItemProps {
     product: CartProduct
+}
+
+export interface createCommentRefresh {
+    refresh: () => Promise<Product | NewsPost>;
 }

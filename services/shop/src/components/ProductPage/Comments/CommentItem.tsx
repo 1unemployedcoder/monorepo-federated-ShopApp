@@ -6,10 +6,11 @@ import { useSelector } from 'react-redux'
 import type { RootState } from '@/redux/store'
 import {deleteProductComment} from "@/API/createDeleteAPI";
 
-const CommentItem: React.FC<CommentItemProps> = ({ comment }) => {
+const CommentItem: React.FC<CommentItemProps> = ({ comment, refresh }) => {
     const { user } = useSelector((state: RootState) => state.auth)
     const deleteComment = async () => {
         await deleteProductComment(comment.id)
+        await refresh()
     }
     let userName
     if (comment.user === null) {
