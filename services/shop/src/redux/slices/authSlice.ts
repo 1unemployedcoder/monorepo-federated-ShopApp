@@ -8,7 +8,6 @@ export const checkAuth = createAsyncThunk<CreatedUser, void>(
     async (_, thunkAPI) => {
         try {
             const response = await check();
-            console.log(response)
             return response
         } catch (error) {
             return thunkAPI.rejectWithValue(error);

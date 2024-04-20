@@ -12,7 +12,7 @@ const Navbar = () => {
     const dispatch = useAppDispatch()
     useEffect(() => {
         dispatch(checkAuth())
-    }, []);
+    }, [])
     return (
         <nav className={cl.navbar}>
             <div className={cl.navbar__content}>
