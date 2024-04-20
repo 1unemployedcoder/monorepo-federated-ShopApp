@@ -34,5 +34,5 @@ export const check = async () => {
     const { data } = await $authHost.get('api/user/auth')
     const token: string = data.token as string
     localStorage.setItem('token', token)
-    return jwtDecode(token)
+    return jwtDecode(token) as CreatedUser
 }

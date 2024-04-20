@@ -35,5 +35,6 @@ export interface fetchedProducts {
 
 export interface AuthSlice {
     user: string
-    isAuth: boolean
+    isAuth: boolean,
+    status: Status
 }
