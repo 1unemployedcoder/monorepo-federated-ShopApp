@@ -1,5 +1,8 @@
-export interface newComment {
+export interface newsComment {
     description: string
+}
+
+export interface productComment extends newsComment {
     rate: number
 }
 

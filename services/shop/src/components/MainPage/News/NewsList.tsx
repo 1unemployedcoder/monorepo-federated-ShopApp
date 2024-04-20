@@ -10,12 +10,11 @@ const NewsList = () => {
     const [news, setNews] = useState<NewsPost[]>([])
     const [newsFetching, isLoading, error, setError] = useFetching(async () => {
         const response = await getNews()
-        // @ts-ignore
         setNews(response)
     })
 
     useEffect(() => {
-        newsFetching()
+        void newsFetching()
     }, [error])
     return (
         <>
@@ -29,13 +28,12 @@ const NewsList = () => {
                 {news.map(neww =>
                     <NewsItem
                         key={neww.id}
-                        author={neww.user}
+                        author={neww.user.name}
                         date={neww.date}
                         desc={neww.description}
                         img={neww.img}
                         title={neww.title}
                         id={neww.id}
-                        comms={1}
                         isOpen={false}
                     />
                 )}

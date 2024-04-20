@@ -104,7 +104,6 @@ export interface NewsItemProps {
     date: string
     title: string
     id: number
-    comms: number
     isOpen: boolean
 }
 

@@ -5,38 +5,28 @@ import ProductComments from '../components/ProductPage/Comments/ProductComments'
 import NewsItem from '../components/MainPage/News/NewsItem'
 import ConditionalContent from '../components/ConditionalContent'
 import PageSkeleton from '../components/ui/skeletonLoader/PageSkeleton'
-import {gettedNewsById, type NewsCommentsTypes, type NewsPost} from '@/@types/types'
+import { type gettedNewsById } from '@/@types/types'
 import { Helmet } from 'react-helmet'
 import cl from '@/styles/modules/News.module.scss'
 import { getNewsById } from '@/API/ProductService'
 
 const NewsItemPage = () => {
     const { id } = useParams() // id новости
-    const [newsPost, setNewsPost] = useState<gettedNewsById>({
-        description: '',
-        user: '',
-        userId: 0,
-        date: '',
-        id: 0,
-        img: '',
-        title: ''
-    })
+    const [newsPost, setNewsPost] = useState<gettedNewsById | null>(null);
     const [fetchingNews, isLoading, error, setError] = useFetching(async () => {
         const data = await getNewsById(Number(id))
         setNewsPost(data)
     })
-
     useEffect(() => {
-        fetchingNews()
+        void fetchingNews()
     }, [error])
     return (
         <div className={cl.newsPage}>
-            <Helmet>
+            {newsPost !== null && <><Helmet>
                 <title>
                     {`SHOP | ${newsPost.title ?? 'Новость'}`}
                 </title>
-            </Helmet>
-            <ConditionalContent
+            </Helmet><ConditionalContent
                 isLoading={isLoading}
                 refresh={setError}
                 error={error}
@@ -49,13 +39,13 @@ const NewsItemPage = () => {
                     img={newsPost.img}
                     title={newsPost.title}
                     desc={newsPost.description}
-                    author={newsPost.user}
+                    author={newsPost.user.name}
                     date={newsPost.date}
                     isOpen={true}
-                    comms={NaN}
-                />
-                <ProductComments comments={[]} refresh={fetchingNews}/>
-            </ConditionalContent>
+                    />
+                <ProductComments comments={newsPost.newsComments} refresh={fetchingNews}/>
+            </ConditionalContent></>
+            }
         </div>
     )
 }

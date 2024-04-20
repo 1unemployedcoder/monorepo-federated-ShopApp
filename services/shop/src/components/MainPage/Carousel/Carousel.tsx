@@ -11,12 +11,11 @@ const Carousel = () => {
     const [carousel, setCarousel] = useState<Product[]>([])
     const [fetchCarousel, isLoadingCarousel, errorCarousel, setErrorCarousel] = useFetching(async () => {
         const response = await getPopular()
-        // @ts-ignore
         setCarousel(response)
     })
 
     useEffect(() => {
-        fetchCarousel()
+        void fetchCarousel()
     }, [errorCarousel])
 
     const cards = carousel.map(card => {

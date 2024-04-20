@@ -22,7 +22,7 @@ export interface CartProduct extends Product {
 
 export interface NewsPost {
     userId: number
-    user: string
+    user: User
     date: string
     description: string
     id: number
@@ -55,12 +55,13 @@ export interface gettedProductById {
 
 export interface gettedNewsById {
     description: string
-    user: string
+    user: User
     userId: number
     date: string
     id: number
     img: string
     title: string
+    newsComments: NewsCommentsTypes[]
 }
 
 export interface ProductCommentsTypes extends NewsCommentsTypes {

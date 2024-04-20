@@ -5,7 +5,7 @@ import BtnPrimary from '../../ui/styledComponents/styledButton/BtnPrimary'
 import { type NewsItemProps } from '@/@types/typesComponents'
 import cl from '@/styles/modules/News.module.scss'
 
-const NewsItem: React.FC<NewsItemProps> = ({ author, img, desc, date, title, id, comms, isOpen }) => {
+const NewsItem: React.FC<NewsItemProps> = ({ author, img, desc, date, title, id, isOpen }) => {
     const navigate = useNavigate()
     const handleGoBack = () => {
         navigate(-1)
@@ -20,9 +20,6 @@ const NewsItem: React.FC<NewsItemProps> = ({ author, img, desc, date, title, id,
             <div className={cl.news__etc}>
                 <p>{date}</p>
                 <p>{author}</p>
-                {!isOpen &&
-                    <p className={cl.gold}>&#128172;{comms}</p>
-                }
             </div>
             <img className={cl.news__img}
                 src={img}

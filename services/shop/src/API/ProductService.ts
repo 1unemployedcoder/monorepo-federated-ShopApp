@@ -3,7 +3,7 @@ import {
     type Category,
     type gettedNewsById,
     type gettedProductById,
-    type NewsPost
+    type NewsPost, Product
 } from '@/@types/types'
 import axios from 'axios'
 import { BackendPath } from '@/API/htttpSettings'
@@ -25,12 +25,12 @@ export async function getCategories () {
 
 export async function getPopular () {
     const response = await axios.get(`${BackendPath}/products/`)
-    return response.data.rows as fetchedProducts
+    return response.data.rows as Product[]
 }
 
 export async function getNews () {
     const response = await axios.get(`${BackendPath}/news/`)
-    return response.data.rows as NewsPost
+    return response.data.rows as NewsPost[]
 }
 
 export async function getNewsById (id: number) {
