@@ -8,13 +8,12 @@
     top: 0;
     z-index: 3;
     background: white;
-
     &__content {
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 50%;
-
+        gap: 0.5rem;
         a {
             text-decoration: none;
             color: black;
@@ -74,14 +73,21 @@
     }
 }
 
+.authContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem
+}
+
 .authorized {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     color: black;
-    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background: transparent;
+    padding: 0.5rem 1.5rem;
+    border: 1px #e7e6e6 solid;
     border-radius: 0.5rem;
-
-    background: linear-gradient(0deg, #ff8200, #ff9700)
 }

@@ -5,12 +5,15 @@ import cl from '@/styles/modules/AuthPage.module.scss'
 import { type AuthUser } from '@/@types/typesComponents'
 import { registration } from '@/API/htttpSettings'
 import { useNavigate } from 'react-router-dom'
+import {useAppDispatch} from "@/redux/store";
+import {register} from "@/redux/slices/authSlice";
 const AuthPage = () => {
     const [user, setUser] = useState<AuthUser>({ name: '', password: '' })
     const navigate = useNavigate()
+    const dispatch = useAppDispatch()
     const signIn = async (e: any) => {
         e.preventDefault()
-        const response = await registration(user)
+        dispatch(register(user))
         navigate('/shop/')
     }
     return (

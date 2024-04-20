@@ -24,8 +24,8 @@ export const registration = async (user: AuthUser) => {
     localStorage.setItem('token', token)
     return jwtDecode(token) as CreatedUser
 }
-export const login = async (name: string, password: string) => {
-    const { data } = await $host.post('api/user/login', { name, password })
+export const login = async (user: AuthUser) => {
+    const { data } = await $host.post('api/user/login', { name: user.name, password: user.password })
     const token: string = data.token as string
     localStorage.setItem('token', token)
     return jwtDecode(token)

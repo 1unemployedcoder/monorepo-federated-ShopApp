@@ -5,26 +5,34 @@ import BtnOrdinary from '../../ui/styledComponents/styledButton/BtnOrdinary'
 import InputMain from '../../ui/styledComponents/styledInput/InputMain'
 import cl from '@/styles/modules/Navbar.module.scss'
 import { useNavigate } from 'react-router-dom'
-import {useSelector} from "react-redux";
-import {RootState} from "@/redux/store";
+import { useSelector } from 'react-redux'
+import {type RootState, useAppDispatch} from '@/redux/store'
+import {setAuth} from "@/redux/slices/authSlice";
 const LogInModal = () => {
     const [modal, setModal] = useState<boolean>(false)
     const navigate = useNavigate()
-    const {user, isAuth, status} = useSelector((state: RootState) => state.auth)
+    const { user, isAuth, status } = useSelector((state: RootState) => state.auth)
+    const dispatch = useAppDispatch()
     const toAuth = () => {
         navigate('/shop/auth')
         setModal(false)
     }
+    const logOut = () => {
+        dispatch(setAuth({user: 'User', isAuth: false}))
+        localStorage.removeItem('token')
+        navigate('/shop/')
+    }
+
     return (
         <div>
             {status === 'loading'
-                ?
-                <div className={cl.loading}/>
-                :
-                isAuth ?
+                ? <div className={cl.loading}/>
+                : isAuth
+                    ? <div className={cl.authContainer}>
                         <div className={cl.authorized}>{user}</div>
-                        :
-                        <BtnPrimary onClick={() => { setModal(true) }}>Вход</BtnPrimary>
+                        <BtnPrimary onClick={logOut}>Выйти</BtnPrimary>
+                    </div>
+                    : <BtnPrimary onClick={() => { setModal(true) }}>Вход</BtnPrimary>
 
             }
             <MyModal active={modal} setActive={setModal}>
