@@ -3,10 +3,9 @@ import BtnPrimary from '@/components/ui/styledComponents/styledButton/BtnPrimary
 import React, { useState } from 'react'
 import cl from '@/styles/modules/AuthPage.module.scss'
 import { type AuthUser } from '@/@types/typesComponents'
-import { registration } from '@/API/htttpSettings'
 import { useNavigate } from 'react-router-dom'
-import {useAppDispatch} from "@/redux/store";
-import {register} from "@/redux/slices/authSlice";
+import { useAppDispatch } from '@/redux/store'
+import { register } from '@/redux/slices/authSlice'
 const AuthPage = () => {
     const [user, setUser] = useState<AuthUser>({ name: '', password: '' })
     const navigate = useNavigate()

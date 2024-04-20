@@ -1,30 +1,30 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type AuthSlice, Status } from '@/@types/reduxTypes'
-import {check, registration} from '@/API/htttpSettings'
+import { check, login, registration } from '@/API/htttpSettings'
 import { type CreatedUser } from '@/@types/createApiTypes'
-import {AuthUser} from "@/@types/typesComponents";
+import { type AuthUser } from '@/@types/typesComponents'
 
 export const checkAuth = createAsyncThunk<CreatedUser, void>(
     'auth/checkAuth',
-    async (_, thunkAPI) => {
-        try {
-            const response = await check()
-            return response
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error)
-        }
+    async (_) => {
+        const response = await check()
+        return response
     }
 )
 
 export const register = createAsyncThunk(
     'auth/register',
-    async (user: AuthUser, thunkAPI) => {
-        try {
-            const response = await registration(user)
-            return response
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error)
-        }
+    async (user: AuthUser) => {
+        const response = await registration(user)
+        return response
+    }
+)
+
+export const loger = createAsyncThunk(
+    'auth/loger',
+    async (user: AuthUser) => {
+        const response = await login(user)
+        return response
     }
 )
 
@@ -67,6 +67,19 @@ const authSlice = createSlice({
             state.user = action.payload.name
         })
         builder.addCase(register.rejected, (state) => {
+            state.status = Status.ERROR
+            state.isAuth = false
+        })
+        builder.addCase(loger.pending, (state) => {
+            state.status = Status.LOADING
+            state.isAuth = false
+        })
+        builder.addCase(loger.fulfilled, (state, action) => {
+            state.status = Status.SUCCESS
+            state.isAuth = true
+            state.user = action.payload.name
+        })
+        builder.addCase(loger.rejected, (state) => {
             state.status = Status.ERROR
             state.isAuth = false
         })

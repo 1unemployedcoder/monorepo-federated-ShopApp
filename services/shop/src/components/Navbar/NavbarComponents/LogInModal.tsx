@@ -7,8 +7,10 @@ import cl from '@/styles/modules/Navbar.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import {type RootState, useAppDispatch} from '@/redux/store'
-import {setAuth} from "@/redux/slices/authSlice";
+import {loger, setAuth} from "@/redux/slices/authSlice";
+import {AuthUser} from "@/@types/typesComponents";
 const LogInModal = () => {
+    const [logUser, setLogUser] = useState<AuthUser>({name: '', password: ''})
     const [modal, setModal] = useState<boolean>(false)
     const navigate = useNavigate()
     const { user, isAuth, status } = useSelector((state: RootState) => state.auth)
@@ -18,11 +20,16 @@ const LogInModal = () => {
         setModal(false)
     }
     const logOut = () => {
-        dispatch(setAuth({user: 'User', isAuth: false}))
+        dispatch(setAuth({ user: 'User', isAuth: false }))
         localStorage.removeItem('token')
         navigate('/shop/')
     }
-
+    const login = () => {
+        dispatch(loger(logUser))
+        navigate('/shop/')
+        setModal(false)
+        setLogUser({name: '', password: ''})
+    }
     return (
         <div>
             {status === 'loading'
@@ -40,11 +47,16 @@ const LogInModal = () => {
                     <h3>Авторизация</h3>
                     <InputMain
                         placeholder='Логин'
+                        value={logUser.name}
+                        onChange={e => setLogUser({...logUser, name: e.target.value})}
                     />
                     <InputMain
                         placeholder='Пароль'
+                        type='password'
+                        value={logUser.password}
+                        onChange={e => setLogUser({...logUser, password: e.target.value})}
                     />
-                    <BtnPrimary>Вход</BtnPrimary>
+                    <BtnPrimary onClick={login}>Вход</BtnPrimary>
                     <BtnOrdinary onClick={toAuth}>У меня нет аккаунта</BtnOrdinary>
                 </div>
             </MyModal>
