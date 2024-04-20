@@ -1,17 +1,17 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import BtnOrdinary from '../../ui/styledComponents/styledButton/BtnOrdinary'
 import { type CommentItemProps } from '@/@types/typesComponents'
 import cl from '@/styles/modules/Comment.module.scss'
 import { useSelector } from 'react-redux'
 import type { RootState } from '@/redux/store'
-import {deleteNewsComment, deleteProductComment} from "@/API/createDeleteAPI";
-import {useLocation} from "react-router-dom";
+import { deleteNewsComment, deleteProductComment } from '@/API/createDeleteAPI'
+import { useLocation } from 'react-router-dom'
 
 const CommentItem: React.FC<CommentItemProps> = ({ comment, refresh }) => {
     const { user } = useSelector((state: RootState) => state.auth)
-    const location = useLocation();
-    const pathname = location.pathname;
-    const path = pathname.split('/')[2];
+    const location = useLocation()
+    const pathname = location.pathname
+    const path = pathname.split('/')[2]
     const deleteComment = async () => {
         if (path !== 'news') {
             await deleteProductComment(comment.id)

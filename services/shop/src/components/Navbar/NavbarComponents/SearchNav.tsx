@@ -16,13 +16,19 @@ const SearchNav = () => {
             setSearch('')
         }
     }
+    const handleKeyDown = (e: any) => {
+        if (e.code === "Enter") {
+            goingSearch();
+        }
+    };
     return (
         <>
             <InputMain
                 type="text"
                 value={search}
-                onChange={e => { setSearch(e.target.value) }}
+                onChange={(e) => { setSearch(e.target.value) }}
                 placeholder={`Поиск по ${currentCategoryName}`}
+                onKeyDown={handleKeyDown}
             />
             <BtnOrdinary onClick={goingSearch}>&#128269;</BtnOrdinary>
         </>
