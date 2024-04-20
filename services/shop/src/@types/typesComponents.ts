@@ -84,6 +84,10 @@ export interface CommentItemProps {
     comment: ProductCommentsTypes | NewsCommentsTypes
 }
 
+export interface AuthUser {
+    name: string
+    password: string
+}
 export interface NewsItemProps {
     author: string
     img: string

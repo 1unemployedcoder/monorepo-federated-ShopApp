@@ -4,8 +4,14 @@ import BtnPrimary from '../../ui/styledComponents/styledButton/BtnPrimary'
 import BtnOrdinary from '../../ui/styledComponents/styledButton/BtnOrdinary'
 import InputMain from '../../ui/styledComponents/styledInput/InputMain'
 import cl from '@/styles/modules/Navbar.module.scss'
+import {useNavigate} from "react-router-dom";
 const LogInModal = () => {
     const [modal, setModal] = useState<boolean>(false)
+    const navigate = useNavigate()
+    const toAuth = () => {
+        navigate('/shop/auth')
+        setModal(false)
+    }
     return (
         <div>
             <BtnPrimary onClick={() => { setModal(true) }}>Вход</BtnPrimary>
@@ -19,7 +25,7 @@ const LogInModal = () => {
                         placeholder='Пароль'
                     />
                     <BtnPrimary>Вход</BtnPrimary>
-                    <BtnOrdinary>У меня нет аккаунта</BtnOrdinary>
+                    <BtnOrdinary onClick={toAuth}>У меня нет аккаунта</BtnOrdinary>
                 </div>
             </MyModal>
         </div>

@@ -1,0 +1,20 @@
+.contentAuth {
+    display: flex;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.defForm {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-items: center;
+    gap: 1rem;
+    border: #ff8200 2px solid;
+    padding: 3rem;
+    margin: 2rem;
+    background: #f5f5f5;
+    border-radius: 24px;
+}

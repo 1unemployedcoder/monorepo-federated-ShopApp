@@ -5,6 +5,7 @@ import Products from '@/pages/Products'
 import NewsItemPage from '@/pages/NewsItemPage'
 import Cart from '@/pages/Cart'
 import Undefined from '@/pages/Undefined'
+import AuthPage from "@/pages/AuthPage";
 
 const routes = [
     {
@@ -30,7 +31,11 @@ const routes = [
             {
                 path: '/shop/*',
                 element: <Undefined />
-            }
+            },
+            {
+                path: '/shop/auth',
+                element: <AuthPage />
+            },
         ]
     }
 ]
