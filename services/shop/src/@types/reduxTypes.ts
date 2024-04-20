@@ -32,3 +32,8 @@ export interface fetchedProducts {
     rows: MergeProductComments[]
     count: number
 }
+
+export interface AuthSlice {
+    user: string
+    isAuth: boolean
+}

@@ -1,6 +1,7 @@
 import axios, { type InternalAxiosRequestConfig } from 'axios'
 import { jwtDecode } from 'jwt-decode'
 import {AuthUser} from "@/@types/typesComponents";
+import {CreatedUser} from "@/@types/createApiTypes";
 
 export const BackendPath = 'http://localhost:5000/api'
 export const $host = axios.create({
@@ -21,7 +22,7 @@ export const registration = async (user: AuthUser) => {
     const { data } = await $host.post('api/user/registration', { name: user.name, password: user.password, role: 'USER' })
     const token: string = data.token as string
     localStorage.setItem('token', token)
-    return jwtDecode(token)
+    return jwtDecode(token) as CreatedUser
 }
 export const login = async (name: string, password: string) => {
     const { data } = await $host.post('api/user/login', { name, password })
