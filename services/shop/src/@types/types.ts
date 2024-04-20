@@ -44,13 +44,23 @@ export interface MergeProductComments extends Product {
 }
 
 export interface gettedProductById {
-    product: MergeProductComments
-    comments: ProductCommentsTypes[]
+    productComments: ProductCommentsTypes[],
+    categoryId: number
+    description: string
+    name: string
+    id: number
+    img: string
+    price: number
 }
 
 export interface gettedNewsById {
-    news: NewsPost
-    comments: NewsCommentsTypes[]
+    description: string
+    user: string
+    userId: number
+    date: string
+    id: number
+    img: string
+    title: string
 }
 
 export interface ProductCommentsTypes extends NewsCommentsTypes {
@@ -63,8 +73,6 @@ export interface IFButtonProps {
     onClick?: () => void
     children?: React.ReactNode
 }
-
-export type MyHeaders = Record<string, string>
 
 // Типы
 

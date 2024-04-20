@@ -7,7 +7,7 @@ import type { RootState } from '@/redux/store'
 import {deleteProductComment} from "@/API/createDeleteAPI";
 
 const CommentItem: React.FC<CommentItemProps> = ({ comment }) => {
-    const { user, isAuth, status } = useSelector((state: RootState) => state.auth)
+    const { user } = useSelector((state: RootState) => state.auth)
     const deleteComment = async () => {
         await deleteProductComment(comment.id)
     }

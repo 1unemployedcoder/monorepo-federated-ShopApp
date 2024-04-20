@@ -5,13 +5,13 @@ import ProductComments from '../components/ProductPage/Comments/ProductComments'
 import AboutProductItem from '../components/ProductPage/AboutProductItem'
 import PageSkeleton from '../components/ui/skeletonLoader/PageSkeleton'
 import ConditionalContent from '../components/ConditionalContent'
-import { type MergeProductComments } from '@/@types/types'
+import {gettedProductById, type MergeProductComments} from '@/@types/types'
 import { Helmet } from 'react-helmet'
 import cl from '@/styles/modules/ProductPage.module.scss'
 import { getProductById } from '@/API/ProductService'
 
 const ProductPage = () => {
-    const [product, setProduct] = useState<MergeProductComments>({
+    const [product, setProduct] = useState<gettedProductById>({
         productComments: [],
         categoryId: 0,
         description: '',
@@ -23,7 +23,6 @@ const ProductPage = () => {
     const { id } = useParams()
     const [fetchingPosts, isLoading, error, setError] = useFetching(async () => {
         const data = await getProductById(Number(id))
-        // @ts-ignore
         setProduct(data)
     })
 

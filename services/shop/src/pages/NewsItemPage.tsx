@@ -5,14 +5,14 @@ import ProductComments from '../components/ProductPage/Comments/ProductComments'
 import NewsItem from '../components/MainPage/News/NewsItem'
 import ConditionalContent from '../components/ConditionalContent'
 import PageSkeleton from '../components/ui/skeletonLoader/PageSkeleton'
-import { type NewsCommentsTypes, type NewsPost } from '@/@types/types'
+import {gettedNewsById, type NewsCommentsTypes, type NewsPost} from '@/@types/types'
 import { Helmet } from 'react-helmet'
 import cl from '@/styles/modules/News.module.scss'
 import { getNewsById } from '@/API/ProductService'
 
 const NewsItemPage = () => {
     const { id } = useParams() // id новости
-    const [newsPost, setNewsPost] = useState<NewsPost>({
+    const [newsPost, setNewsPost] = useState<gettedNewsById>({
         description: '',
         user: '',
         userId: 0,
@@ -23,7 +23,6 @@ const NewsItemPage = () => {
     })
     const [fetchingNews, isLoading, error, setError] = useFetching(async () => {
         const data = await getNewsById(Number(id))
-        // @ts-ignore
         setNewsPost(data)
     })
 

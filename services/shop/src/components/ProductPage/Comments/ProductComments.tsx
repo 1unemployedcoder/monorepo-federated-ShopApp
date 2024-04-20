@@ -6,10 +6,12 @@ import CommentItem from './CommentItem'
 import { type ProductCommentsProps } from '@/@types/typesComponents'
 import { type ProductCommentsTypes } from '@/@types/types'
 import cl from '@/styles/modules/Comment.module.scss'
+import {useSelector} from "react-redux";
+import type {RootState} from "@/redux/store";
 
 const ProductComments: React.FC<ProductCommentsProps> = ({ comments, productId }) => {
     const { rating, stars } = useCommentsRating(comments as ProductCommentsTypes[])
-
+    const { isAuth } = useSelector((state: RootState) => state.auth)
     return (
         <div>
             {!isNaN(rating) &&
@@ -17,8 +19,7 @@ const ProductComments: React.FC<ProductCommentsProps> = ({ comments, productId }
                 Рейтинг: {stars} {rating}
                 </span>
             }
-            <ProductCreateComments
-            />
+            {isAuth && <ProductCreateComments/>}
             <div>
                 <TransitionGroup>
                     {(comments.length > 0) && comments.map(comment =>

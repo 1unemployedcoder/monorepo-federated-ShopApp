@@ -4,6 +4,8 @@ import InputMain from '../../ui/styledComponents/styledInput/InputMain'
 import cl from '@/styles/modules/Comment.module.scss'
 import { createProductComment } from '@/API/createDeleteAPI'
 import { useParams } from 'react-router-dom'
+import {useSelector} from "react-redux";
+import type {RootState} from "@/redux/store";
 const ProductCreateComments = () => {
     const [comment, setComment] = useState({ description: '', rate: 1 })
     const { id } = useParams()
