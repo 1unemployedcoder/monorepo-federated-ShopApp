@@ -1,12 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import BtnOrdinary from '../../ui/styledComponents/styledButton/BtnOrdinary'
 import { type CommentItemProps } from '@/@types/typesComponents'
 import cl from '@/styles/modules/Comment.module.scss'
-import {useSelector} from "react-redux";
-import type {RootState} from "@/redux/store";
+import { useSelector } from 'react-redux'
+import type { RootState } from '@/redux/store'
+import {deleteProductComment} from "@/API/createDeleteAPI";
 
 const CommentItem: React.FC<CommentItemProps> = ({ comment }) => {
     const { user, isAuth, status } = useSelector((state: RootState) => state.auth)
+    const deleteComment = async () => {
+        await deleteProductComment(comment.id)
+    }
     let userName
     if (comment.user === null) {
         userName = 'NoName'
@@ -30,7 +34,7 @@ const CommentItem: React.FC<CommentItemProps> = ({ comment }) => {
                     </div>
                 </div>
                 <div>
-                    {userName === user && <BtnOrdinary>Удалить</BtnOrdinary>}
+                    {userName === user && <BtnOrdinary onClick={deleteComment}>Удалить</BtnOrdinary>}
                 </div>
             </div>
         </div>

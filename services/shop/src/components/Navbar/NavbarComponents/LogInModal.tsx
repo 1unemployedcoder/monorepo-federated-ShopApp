@@ -25,7 +25,7 @@ const LogInModal = () => {
         navigate('/shop/')
     }
     const login = () => {
-        dispatch(loger(logUser))
+        void dispatch(loger(logUser))
         navigate('/shop/')
         setModal(false)
         setLogUser({ name: '', password: '' })
@@ -45,18 +45,22 @@ const LogInModal = () => {
             <MyModal active={modal} setActive={setModal}>
                 <div className={cl.loginModal}>
                     <h3>Авторизация</h3>
-                    <InputMain
-                        placeholder='Логин'
-                        value={logUser.name}
-                        onChange={e => { setLogUser({ ...logUser, name: e.target.value }) }}
-                    />
-                    <InputMain
-                        placeholder='Пароль'
-                        type='password'
-                        value={logUser.password}
-                        onChange={e => { setLogUser({ ...logUser, password: e.target.value }) }}
-                    />
-                    <BtnPrimary onClick={login}>Вход</BtnPrimary>
+                    <form className={cl.loginContainer}>
+                        <InputMain
+                            autoComplete='name'
+                            placeholder='Логин'
+                            value={logUser.name}
+                            onChange={e => { setLogUser({ ...logUser, name: e.target.value }) }}
+                        />
+                        <InputMain
+                            autoComplete='current-password'
+                            placeholder='Пароль'
+                            type='password'
+                            value={logUser.password}
+                            onChange={e => { setLogUser({ ...logUser, password: e.target.value }) }}
+                        />
+                        <BtnPrimary onClick={login}>Вход</BtnPrimary>
+                    </form>
                     <BtnOrdinary onClick={toAuth}>У меня нет аккаунта</BtnOrdinary>
                 </div>
             </MyModal>

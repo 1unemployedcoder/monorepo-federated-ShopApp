@@ -57,7 +57,7 @@
 
 .loading {
     border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #000;
+    border-left-color: #ff8200;
     border-radius: 50%;
     width: 20px;
     height: 20px;
@@ -71,6 +71,14 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    align-items: center;
 }
 
 .authContainer {

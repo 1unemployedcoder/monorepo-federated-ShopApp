@@ -2,7 +2,7 @@ import React, { type FormEvent, useState } from 'react'
 import BtnOrdinary from '../../ui/styledComponents/styledButton/BtnOrdinary'
 import InputMain from '../../ui/styledComponents/styledInput/InputMain'
 import cl from '@/styles/modules/Comment.module.scss'
-import { createProductComment } from '@/API/createAPI'
+import { createProductComment } from '@/API/createDeleteAPI'
 import { useParams } from 'react-router-dom'
 const ProductCreateComments = () => {
     const [comment, setComment] = useState({ description: '', rate: 1 })
