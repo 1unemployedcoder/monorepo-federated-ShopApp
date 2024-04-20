@@ -2,21 +2,21 @@ import React, { type FormEvent, useState } from 'react'
 import BtnOrdinary from '../../ui/styledComponents/styledButton/BtnOrdinary'
 import InputMain from '../../ui/styledComponents/styledInput/InputMain'
 import cl from '@/styles/modules/Comment.module.scss'
-import {createNewsComment, createProductComment} from '@/API/createDeleteAPI'
-import {useLocation, useParams} from 'react-router-dom'
-import {createCommentRefresh} from "@/@types/typesComponents";
-const ProductCreateComments: React.FC<createCommentRefresh> = ({refresh}) => {
+import { createNewsComment, createProductComment } from '@/API/createDeleteAPI'
+import { useLocation, useParams } from 'react-router-dom'
+import { type createCommentRefresh } from '@/@types/typesComponents'
+const ProductCreateComments: React.FC<createCommentRefresh> = ({ refresh }) => {
     const [comment, setComment] = useState({ description: '', rate: 1 })
     const { id } = useParams()
-    const location = useLocation();
-    const pathname = location.pathname;
-    const path = pathname.split('/')[2];
+    const location = useLocation()
+    const pathname = location.pathname
+    const path = pathname.split('/')[2]
     const submitComment = async (e: FormEvent) => {
         e.preventDefault()
         if (path !== 'news') {
             const response = await createProductComment(Number(id), comment)
         } else {
-            const response = await createNewsComment(Number(id), {description: comment.description})
+            const response = await createNewsComment(Number(id), { description: comment.description })
         }
         await refresh()
         setComment({ description: '', rate: 1 })

@@ -4,12 +4,20 @@ import { type CommentItemProps } from '@/@types/typesComponents'
 import cl from '@/styles/modules/Comment.module.scss'
 import { useSelector } from 'react-redux'
 import type { RootState } from '@/redux/store'
-import {deleteProductComment} from "@/API/createDeleteAPI";
+import {deleteNewsComment, deleteProductComment} from "@/API/createDeleteAPI";
+import {useLocation} from "react-router-dom";
 
 const CommentItem: React.FC<CommentItemProps> = ({ comment, refresh }) => {
     const { user } = useSelector((state: RootState) => state.auth)
+    const location = useLocation();
+    const pathname = location.pathname;
+    const path = pathname.split('/')[2];
     const deleteComment = async () => {
-        await deleteProductComment(comment.id)
+        if (path !== 'news') {
+            await deleteProductComment(comment.id)
+        } else {
+            await deleteNewsComment(comment.id)
+        }
         await refresh()
     }
     let userName

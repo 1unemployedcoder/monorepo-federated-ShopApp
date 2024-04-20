@@ -15,3 +15,8 @@ export const createNewsComment = async (id: number, comment: newsComment) => {
     const { data } = await $authHost.post(`api/newsComments/${id}`, comment)
     return data
 }
+
+export const deleteNewsComment = async (id: number) => {
+    const response = await $authHost.delete(`api/newsComments/${id}`)
+    return response
+}
