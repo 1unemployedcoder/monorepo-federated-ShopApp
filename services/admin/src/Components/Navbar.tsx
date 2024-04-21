@@ -1,7 +1,22 @@
 import { AppBar, Toolbar, Typography, Button } from '@mui/material'
-import { Link } from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+import {useEffect} from "react";
+import {RootState, useAppDispatch} from "@/redux/store";
+import {checkAuth, setAuth} from "@/redux/slices/authSlice";
+import {useSelector} from "react-redux";
 
 const Navbar = () => {
+    const { user, isAuth } = useSelector((state: RootState) => state.auth)
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
+    const logOut = () => {
+        dispatch(setAuth({ user: 'User', isAuth: false }))
+        localStorage.removeItem('token')
+        navigate('/admin/')
+    }
+    useEffect(() => {
+        dispatch(checkAuth())
+    }, [])
     return (
         <AppBar position="static">
             <Toolbar>
@@ -10,7 +25,15 @@ const Navbar = () => {
                 </Typography>
                 <Button color="inherit" component={Link} to="/admin/products">Продукты</Button>
                 <Button color="inherit" component={Link} to="/admin/news">Новости</Button>
-                <Button color='inherit' component={Link} to="/admin/login">Войти</Button>
+                {isAuth ?
+                    <>
+                        <Typography>
+                            {user}
+                        </Typography>
+                        <Button onClick={logOut} color='inherit'>Выйти</Button>
+                    </>
+                        : <Button color='inherit' component={Link} to="/admin/login">Войти</Button>
+                }
             </Toolbar>
         </AppBar>
     )

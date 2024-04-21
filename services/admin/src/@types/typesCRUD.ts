@@ -21,6 +21,6 @@ export interface CreatedUser {
 }
 
 export interface AuthUser {
-    name: string
-    password: string
+    name: FormDataEntryValue | null
+    password: FormDataEntryValue | null
 }
