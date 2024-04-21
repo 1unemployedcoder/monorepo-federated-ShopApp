@@ -15,7 +15,7 @@ const ProductList = () => {
         setProducts(response.rows)
     })
     useEffect(() => {
-        fetchData()
+        void fetchData()
     }, [])
     if (products === null) {
         return 'Продукты не найдены'
@@ -26,12 +26,12 @@ const ProductList = () => {
                 <Card key={index} sx={{ backgroundColor: '#f0f0f0', minWidth: '200px' }}>
                     <CardContent>
                         <img src={product.img} alt={product.name} style={{
-                            width: '100px',
+                            width: '100px'
                         }}/>
                     </CardContent>
                     <CardContent>
                         <Typography
-                            sx={{display: 'inline'}}
+                            sx={{ display: 'inline' }}
                             component="span"
                             variant="body2"
                             color="text.primary"

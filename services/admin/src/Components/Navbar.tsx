@@ -9,6 +9,7 @@ const Navbar = () => {
                     Админ панель
                 </Typography>
                 <Button color="inherit" component={Link} to="/admin/products">Продукты</Button>
+                <Button color="inherit" component={Link} to="/admin/news">Новости</Button>
                 <Button color='inherit' component={Link} to="/admin/login">Войти</Button>
             </Toolbar>
         </AppBar>
