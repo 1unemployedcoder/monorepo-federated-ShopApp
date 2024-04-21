@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type AuthSlice, Status } from '@/@types/reduxTypes'
-import {AuthUser, CreatedUser} from "@/@types/typesCRUD";
-import {check, login} from "@/API/ProductService";
+import { type AuthUser, type CreatedUser } from '@/@types/typesCRUD'
+import { check, login } from '@/API/ProductService'
 
 export const checkAuth = createAsyncThunk<CreatedUser, void>(
     'auth/checkAuth',
