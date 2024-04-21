@@ -12,6 +12,14 @@ export interface CreatedNews {
     date: string
 }
 
+export interface CreatedUser {
+    id: number
+    name: string
+    role: string
+    iat: number
+    exp: number
+}
+
 export interface AuthUser {
     name: string
     password: string

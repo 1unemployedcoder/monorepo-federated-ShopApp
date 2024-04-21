@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { App } from '@/Components/App'
 import ProductList from "@/pages/ProductList";
+import LogInPage from "@/pages/LogInPage";
 
 const routes = [
     {
@@ -10,6 +11,10 @@ const routes = [
             {
                 path: '/admin/products',
                 element: <ProductList />,
+            },
+            {
+                path: '/admin/login',
+                element: <LogInPage />,
             },
         ]
     }

@@ -1,5 +1,5 @@
-import {AppBar, Toolbar, Typography, Button } from '@mui/material'
-import {Link} from "react-router-dom";
+import { AppBar, Toolbar, Typography, Button } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -9,7 +9,7 @@ const Navbar = () => {
                     Админ панель
                 </Typography>
                 <Button color="inherit" component={Link} to="/admin/products">Продукты</Button>
-                <Button color='inherit'>Войти</Button>
+                <Button color='inherit' component={Link} to="/admin/login">Войти</Button>
             </Toolbar>
         </AppBar>
     )
