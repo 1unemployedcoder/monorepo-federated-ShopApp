@@ -6,16 +6,16 @@ import {
 } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useFetching } from '@/hooks/useFetching'
-import {getNews} from '@/API/readAPI'
-import {NewsPost} from '@/@types/types'
+import { getNews } from '@/API/readAPI'
+import { type NewsPost } from '@/@types/types'
 const NewsList = () => {
     const [news, setNews] = useState<NewsPost[] | null>(null)
-    const [fetchData, isLoading, error, setError] = useFetching(async () => {
+    const [fetchData] = useFetching(async () => {
         const response = await getNews()
         setNews(response)
     })
     useEffect(() => {
-        fetchData()
+        void fetchData()
     }, [])
     if (news === null) {
         return 'Новости не найдены'

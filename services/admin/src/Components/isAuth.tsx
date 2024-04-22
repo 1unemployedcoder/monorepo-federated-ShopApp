@@ -7,9 +7,12 @@ import {useOutletEmpty} from "@/hooks/useOutletEmpty";
 import ProductList from "@/pages/ProductList";
 
 const IsAuth = () => {
-    const { isAuth } = useSelector((state: RootState) => state.auth)
+    const { status, isAuth } = useSelector((state: RootState) => state.auth)
     const outlet = useOutlet()
     const isOutletEmpty = useOutletEmpty(outlet)
+    if (status !== 'success') {
+        return 'Загрузка...'
+    }
     if (isAuth) {
         return isOutletEmpty ? <ProductList /> : <Outlet />
     } else {

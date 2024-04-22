@@ -3,6 +3,7 @@ export interface CreatedProduct {
     description: string
     img: string
     price: number
+    typeId: number
 }
 
 export interface CreatedNews {

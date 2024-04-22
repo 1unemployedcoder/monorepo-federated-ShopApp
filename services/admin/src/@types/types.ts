@@ -13,7 +13,6 @@ export interface Category {
     name: string
 }
 
-
 export interface fetchedProducts {
     rows: Product[]
     count: number
