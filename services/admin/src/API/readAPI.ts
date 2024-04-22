@@ -24,11 +24,6 @@ export async function getCategories () {
     return response.data as Category[]
 }
 
-export async function getPopular () {
-    const response = await axios.get(`${BackendPath}/products/`)
-    return response.data.rows as fetchedProducts[]
-}
-
 export async function getNews () {
     const response = await axios.get(`${BackendPath}/news/`)
     return response.data.rows as NewsPost[]

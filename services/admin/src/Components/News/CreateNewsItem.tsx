@@ -1,11 +1,11 @@
 import React from 'react'
-import {Box, Button, TextField, Typography} from '@mui/material'
-import {createNews, createProduct} from '@/API/createDeleteAPI'
-import {Category, NewsPost, Product} from "@/@types/types";
+import { Box, Button, TextField, Typography } from '@mui/material'
+import { createNews } from '@/API/createDeleteAPI'
+import { type NewsPost, type Product } from '@/@types/types'
 interface CreateProductItemProps {
     refresh: () => Promise<Product | NewsPost>
 }
-const CreateNewsItem: React.FC<CreateProductItemProps> = ({refresh}) => {
+const CreateNewsItem: React.FC<CreateProductItemProps> = ({ refresh }) => {
     const currentDate = new Date()
     const options = { day: 'numeric', month: 'long', year: 'numeric' } as const
     const formattedDate = new Intl.DateTimeFormat('ru-RU', options).format(currentDate)
@@ -16,7 +16,7 @@ const CreateNewsItem: React.FC<CreateProductItemProps> = ({refresh}) => {
             title: String(data.get('title')),
             description: String(data.get('description')),
             img: String(data.get('img')),
-            date: formattedDate,
+            date: formattedDate
         })
         refresh()
     }
