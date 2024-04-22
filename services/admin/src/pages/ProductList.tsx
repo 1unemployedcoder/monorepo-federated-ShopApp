@@ -33,7 +33,7 @@ const ProductList = () => {
                     onChange={(e) => { setProductSearch({ ...productSearch, search: e.target.value }) }}
                 />
                 {products.map((product) => (
-                    <ProductItem key={product.id} product={product}/>
+                    <ProductItem key={product.id} product={product} refresh={fetchData}/>
                 ))}
                 <Pagination onChange={(e, page) => { setProductSearch({ ...productSearch, page }) }} count={Math.ceil(totalCount / 2)} />
             </Box>

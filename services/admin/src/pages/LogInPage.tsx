@@ -1,4 +1,5 @@
 import {
+    Alert,
     Avatar,
     Box, Button,
     Container,
@@ -73,6 +74,11 @@ const LogInPage = () => {
                     </Button>
                 </Box>
             </Box>
+            {status === 'error' &&
+                <Alert severity="error">
+                    Ошибка авторизации
+                </Alert>
+            }
         </Container>
     )
 }
