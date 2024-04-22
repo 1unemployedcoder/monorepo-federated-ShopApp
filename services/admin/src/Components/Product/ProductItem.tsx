@@ -16,7 +16,7 @@ import { useFetching } from '@/hooks/useFetching'
 import { getProductById } from '@/API/readAPI'
 interface ProductItemProps {
     product: Product
-    refresh: () => Promise<Product | NewsPost>
+    refresh: () => Promise<NewsPost | Product>
 }
 const ProductItem: React.FC<ProductItemProps> = ({ product, refresh }) => {
     const [comments, setComments] = useState<ProductCommentsTypes[]>()
@@ -72,7 +72,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, refresh }) => {
                     <Button onClick={async () => { await deleteProductItem(product.id) }}>Удалить</Button>
                 </CardActions>
             </Card>
-            <Dialog open={modal} onClose={closeModal}> {/* Модальное окно */}
+            <Dialog open={modal} onClose={closeModal}>
                 <DialogTitle>Комментарии</DialogTitle>
                 <DialogContent>
                     {comments !== undefined && comments.map(comm =>
