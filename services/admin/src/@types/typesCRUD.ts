@@ -24,3 +24,8 @@ export interface AuthUser {
     name: FormDataEntryValue | null
     password: FormDataEntryValue | null
 }
+
+export interface getProductType {
+    search: string
+    page: number
+}

@@ -5,28 +5,28 @@ import {
     TextField,
     Typography
 } from '@mui/material'
-import React, {useEffect} from "react";
-import {RootState, useAppDispatch} from "@/redux/store";
-import {loger} from "@/redux/slices/authSlice";
-import {useNavigate} from "react-router-dom";
-import {useSelector} from "react-redux";
+import React, {useEffect} from 'react'
+import { type RootState, useAppDispatch } from '@/redux/store'
+import { loger } from '@/redux/slices/authSlice'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 const LogInPage = () => {
     const dispatch = useAppDispatch()
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const { isAuth, status } = useSelector((state: RootState) => state.auth)
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
+        event.preventDefault()
+        const data = new FormData(event.currentTarget)
         await dispatch(loger({
             name: data.get('login'),
             password: data.get('password')
         }))
-    };
+    }
     useEffect(() => {
-        if (status === 'success' && isAuth){
-            return navigate("/admin/");
+        if (status === 'success' && isAuth) {
+            navigate('/admin/')
         }
-    },[status]);
+    }, [status])
     return (
         <Container component="main" maxWidth="xs">
             <Box

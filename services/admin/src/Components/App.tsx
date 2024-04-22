@@ -3,15 +3,11 @@ import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import Navbar from '@/Components/Navbar'
-import { Outlet, useOutlet } from 'react-router-dom'
-import {Box, createTheme, CssBaseline, ThemeProvider} from '@mui/material'
-import { Provider } from 'react-redux'
-import { store } from '@/redux/store'
-import { useOutletEmpty } from '@/hooks/useOutletEmpty'
-import ProductList from '@/pages/ProductList'
+import { Box, createTheme, CssBaseline, ThemeProvider } from '@mui/material'
+import {Provider} from 'react-redux'
+import {store} from '@/redux/store'
+import IsAuth from "@/Components/isAuth";
 export const App = () => {
-    const outlet = useOutlet()
-    const isOutletEmpty = useOutletEmpty(outlet)
     const defaultTheme = createTheme()
     return (
         <ThemeProvider theme={defaultTheme}>
@@ -19,7 +15,7 @@ export const App = () => {
             <Provider store={store}>
                 <Navbar />
                 <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                    {isOutletEmpty ? <ProductList/> : <Outlet />}
+                    <IsAuth />
                 </Box>
             </Provider>
         </ThemeProvider>

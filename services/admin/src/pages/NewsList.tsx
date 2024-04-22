@@ -8,7 +8,7 @@ import React, { useEffect, useState } from 'react'
 import { useFetching } from '@/hooks/useFetching'
 import {getNews} from '@/API/readAPI'
 import {NewsPost} from '@/@types/types'
-const ProductList = () => {
+const NewsList = () => {
     const [news, setNews] = useState<NewsPost[] | null>(null)
     const [fetchData, isLoading, error, setError] = useFetching(async () => {
         const response = await getNews()
@@ -53,4 +53,4 @@ const ProductList = () => {
     )
 }
 
-export default ProductList
+export default NewsList

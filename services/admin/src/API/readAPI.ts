@@ -7,9 +7,10 @@ import {
     type gettedProductById,
     type NewsPost
 } from '@/@types/types'
+import {getProductType} from "@/@types/typesCRUD";
 
-export async function getAll () {
-    const response = await axios.get(`${BackendPath}/products/`)
+export async function getAll ({search, page}: getProductType) {
+    const response = await axios.get(`${BackendPath}/products/?search=${search}&page=${page}&limit=2`)
     return response.data as fetchedProducts
 }
 

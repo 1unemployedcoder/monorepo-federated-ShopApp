@@ -1,5 +1,5 @@
 import { $authHost } from '@/API/ProductService'
-import {CreatedNews, CreatedProduct} from "@/@types/typesCRUD";
+import { type CreatedNews, type CreatedProduct } from '@/@types/typesCRUD'
 
 export const createProduct = async (product: CreatedProduct) => {
     const { data } = await $authHost.post('api/products/', product)
@@ -25,8 +25,4 @@ export const deleteNews = async (id: number) => {
 export const deleteCommentNews = async (id: number) => {
     const { data } = await $authHost.delete(`api/newsComments/${id}`)
     return data
-}
-export const check = async () => {
-    const response = await $authHost.get('api/user/auth')
-    return response
 }

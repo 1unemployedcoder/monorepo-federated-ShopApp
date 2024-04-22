@@ -1,6 +1,6 @@
 import axios, {type InternalAxiosRequestConfig} from 'axios'
 import { jwtDecode } from 'jwt-decode'
-import {AuthUser, CreatedUser} from "@/@types/typesCRUD";
+import { AuthUser, CreatedUser } from '@/@types/typesCRUD'
 export const BackendPath = 'http://localhost:5000/api'
 export const $host = axios.create({
     baseURL: 'http://localhost:5000/'

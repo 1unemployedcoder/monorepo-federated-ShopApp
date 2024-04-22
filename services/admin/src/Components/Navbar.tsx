@@ -1,9 +1,9 @@
-import { AppBar, Toolbar, Typography, Button } from '@mui/material'
-import {Link, useNavigate} from 'react-router-dom'
-import {useEffect} from "react";
-import {RootState, useAppDispatch} from "@/redux/store";
-import {checkAuth, setAuth} from "@/redux/slices/authSlice";
-import {useSelector} from "react-redux";
+import {AppBar, Toolbar, Typography, Button} from '@mui/material'
+import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { type RootState, useAppDispatch } from '@/redux/store'
+import { checkAuth, setAuth } from '@/redux/slices/authSlice'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
     const { user, isAuth } = useSelector((state: RootState) => state.auth)
@@ -25,14 +25,14 @@ const Navbar = () => {
                 </Typography>
                 <Button color="inherit" component={Link} to="/admin/products">Продукты</Button>
                 <Button color="inherit" component={Link} to="/admin/news">Новости</Button>
-                {isAuth ?
-                    <>
+                {isAuth
+                    ? <>
                         <Typography>
                             {user}
                         </Typography>
                         <Button onClick={logOut} color='inherit'>Выйти</Button>
                     </>
-                        : <Button color='inherit' component={Link} to="/admin/login">Войти</Button>
+                    : <Button color='inherit' component={Link} to="/admin/login">Войти</Button>
                 }
             </Toolbar>
         </AppBar>
