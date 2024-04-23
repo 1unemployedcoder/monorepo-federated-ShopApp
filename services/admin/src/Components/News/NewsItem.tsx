@@ -63,7 +63,7 @@ const NewsItem: React.FC<NewsItemProps> = ({ neww, refresh }) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button onClick={openModal}>Открыть</Button>
+                    <Button onClick={openModal}>Комментарии</Button>
                     <Button onClick={deleteNeww}>Удалить</Button>
                 </CardActions>
             </Card>
