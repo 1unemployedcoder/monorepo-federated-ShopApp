@@ -3,6 +3,7 @@ import { App } from '@/Components/App'
 import ProductList from "@/pages/ProductList";
 import LogInPage from "@/pages/LogInPage";
 import NewsList from "@/pages/NewsList";
+import SupportPage from "@/pages/SupportPage";
 
 const routes = [
     {
@@ -20,6 +21,10 @@ const routes = [
             {
                 path: '/admin/login',
                 element: <LogInPage />,
+            },
+            {
+                path: '/admin/support',
+                element: <SupportPage />,
             },
         ]
     }

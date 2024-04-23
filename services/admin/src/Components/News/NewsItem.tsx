@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react'
 import {
     Button,
     Card,
@@ -9,16 +9,16 @@ import {
     DialogContentText,
     DialogTitle,
     Typography
-} from "@mui/material";
-import type {NewsCommentsTypes, NewsPost, Product} from "@/@types/types";
-import {deleteCommentNews, deleteNews} from "@/API/createDeleteAPI";
-import {useFetching} from "@/hooks/useFetching";
-import {getNewsById} from "@/API/readAPI";
+} from '@mui/material'
+import type { NewsCommentsTypes, NewsPost, Product } from '@/@types/types'
+import { deleteCommentNews, deleteNews } from '@/API/createDeleteAPI'
+import { useFetching } from '@/hooks/useFetching'
+import { getNewsById } from '@/API/readAPI'
 interface NewsItemProps {
     neww: NewsPost
     refresh: () => Promise<NewsPost | Product>
 }
-const NewsItem: React.FC<NewsItemProps> = ({neww, refresh}) => {
+const NewsItem: React.FC<NewsItemProps> = ({ neww, refresh }) => {
     const [comments, setComments] = useState<NewsCommentsTypes[]>()
     const [modal, setModal] = useState<boolean>(false)
     const [fetchComments] = useFetching(async () => {
@@ -78,7 +78,7 @@ const NewsItem: React.FC<NewsItemProps> = ({neww, refresh}) => {
                             <DialogContentText>
                                 Описание: {comm.description}
                             </DialogContentText>
-                            <Button onClick={() => deleteComment(comm.id)}>Удалить</Button>
+                            <Button onClick={async () => { await deleteComment(comm.id) }}>Удалить</Button>
                         </>
                     )}
                 </DialogContent>
@@ -87,7 +87,7 @@ const NewsItem: React.FC<NewsItemProps> = ({neww, refresh}) => {
                 </DialogActions>
             </Dialog>
         </>
-    );
-};
+    )
+}
 
-export default NewsItem;
+export default NewsItem

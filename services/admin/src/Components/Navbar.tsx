@@ -4,7 +4,11 @@ import React, { useEffect } from 'react'
 import { type RootState, useAppDispatch } from '@/redux/store'
 import { checkAuth, setAuth } from '@/redux/slices/authSlice'
 import { useSelector } from 'react-redux'
-
+import CategoryIcon from '@mui/icons-material/Category';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import ChatIcon from '@mui/icons-material/Chat';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LoginIcon from '@mui/icons-material/Login';
 const Navbar = () => {
     const { user, isAuth } = useSelector((state: RootState) => state.auth)
     const dispatch = useAppDispatch()
@@ -23,16 +27,22 @@ const Navbar = () => {
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Админ панель
                 </Typography>
-                <Button color="inherit" component={Link} to="/admin/products">Продукты</Button>
-                <Button color="inherit" component={Link} to="/admin/news">Новости</Button>
+                <Button color="inherit" component={Link} to="/admin/products" startIcon={<CategoryIcon />} sx={{ mr: 1 }}>
+                    Продукты
+                </Button>
+                <Button color="inherit" component={Link} to="/admin/news" startIcon={<NewspaperIcon />}>Новости</Button>
+                <Button color="inherit" component={Link} to="/admin/support" startIcon={<ChatIcon />}>Чат техподдержки</Button>
                 {isAuth
                     ? <>
                         <Typography>
+                            <AccountCircleIcon />
+                        </Typography>
+                        <Typography>
                             {user}
                         </Typography>
-                        <Button onClick={logOut} color='inherit'>Выйти</Button>
+                        <Button variant="outlined" onClick={logOut} color='inherit' startIcon={<LoginIcon />}>Выйти</Button>
                     </>
-                    : <Button color='inherit' component={Link} to="/admin/login">Войти</Button>
+                    : <Button color='inherit' component={Link} to="/admin/login" startIcon={<LoginIcon />}>Войти</Button>
                 }
             </Toolbar>
         </AppBar>
