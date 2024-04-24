@@ -11,7 +11,7 @@ export const checkAuth = createAsyncThunk<CreatedUser, void>(
     }
 )
 
-export const loger = createAsyncThunk(
+export const loger = createAsyncThunk<CreatedUser, AuthUser>(
     'auth/loger',
     async (user: AuthUser) => {
         const response = await login(user)

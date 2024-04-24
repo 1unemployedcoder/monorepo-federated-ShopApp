@@ -4,9 +4,9 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import Navbar from '@/Components/Navbar'
 import { Box, createTheme, CssBaseline, ThemeProvider } from '@mui/material'
-import {Provider} from 'react-redux'
-import {store} from '@/redux/store'
-import IsAuth from "@/Components/isAuth";
+import { Provider } from 'react-redux'
+import { store } from '@/redux/store'
+import IsAuth from '@/Components/isAuth'
 export const App = () => {
     const defaultTheme = createTheme()
     return (

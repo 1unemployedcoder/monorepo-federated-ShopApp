@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react'
-import {Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography} from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material'
 import { createProduct } from '@/API/createDeleteAPI'
-import {Category, NewsPost, Product} from "@/@types/types";
-import {useFetching} from "@/hooks/useFetching";
-import {getCategories} from "@/API/readAPI";
+import { type Category, type NewsPost, type Product } from '@/@types/types'
+import { useFetching } from '@/hooks/useFetching'
+import { getCategories } from '@/API/readAPI'
 interface CreateProductItemProps {
     refresh: () => Promise<Product | NewsPost>
 }
-const CreateProductItem: React.FC<CreateProductItemProps> = ({refresh}) => {
+const CreateProductItem: React.FC<CreateProductItemProps> = ({ refresh }) => {
     const [types, setTypes] = useState<Category[]>()
     const [type, setType] = useState<string>('1')
     const [fetchTypes] = useFetching(async () => {
@@ -16,7 +16,7 @@ const CreateProductItem: React.FC<CreateProductItemProps> = ({refresh}) => {
     })
     useEffect(() => {
         void fetchTypes()
-    }, []);
+    }, [])
     const createProd = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         const data = new FormData(event.currentTarget)
@@ -69,7 +69,7 @@ const CreateProductItem: React.FC<CreateProductItemProps> = ({refresh}) => {
                     id="type"
                     value={type}
                     label="type"
-                    onChange={e => setType(e.target.value)}
+                    onChange={e => { setType(e.target.value) }}
                 >
                     {types !== undefined && types.map(tip =>
                         <MenuItem key={tip.id} value={tip.id}>{tip.name}</MenuItem>

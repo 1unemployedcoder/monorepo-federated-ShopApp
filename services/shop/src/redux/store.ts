@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import categories from './slices/categoriesSlice'
 import cart from './slices/cartSlice'
 import products from './slices/productsSlice'
-import auth from "@/redux/slices/authSlice";
+import auth from '@/redux/slices/authSlice'
 import { useDispatch } from 'react-redux'
 
 export const store = configureStore({
