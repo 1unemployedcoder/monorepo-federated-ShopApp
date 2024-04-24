@@ -84,3 +84,12 @@ export type ArrayFetch = [() => Promise<NewsPost | Product>, boolean, string, Re
 export type MainTabs = 'popular' | 'news'
 
 export type SortType = 'price_desc' | 'price_asc' | ''
+
+export type eventData = 'connection' | 'message'
+
+export interface msg {
+    event: string
+    userName: string
+    id: number
+    message: string
+}

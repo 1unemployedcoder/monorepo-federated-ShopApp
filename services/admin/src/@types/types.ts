@@ -65,4 +65,10 @@ export interface ProductCommentsTypes extends NewsCommentsTypes {
 // Типы
 
 
-export type SortType = 'price_desc' | 'price_asc' | ''
+export interface msg {
+    event: string
+    userName: string
+    id: number
+    message: string
+}
+export type eventData = 'connection' | 'message'
