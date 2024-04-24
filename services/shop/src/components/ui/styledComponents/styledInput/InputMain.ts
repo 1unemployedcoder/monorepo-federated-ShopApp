@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const InputMain = styled.input`
     display: block;
@@ -15,6 +15,6 @@ const InputMain = styled.input`
         outline: 0;
         outline-offset: 0;
     }
-`;
+`
 
 export default InputMain

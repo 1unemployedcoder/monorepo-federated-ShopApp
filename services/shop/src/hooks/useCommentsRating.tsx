@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import {ProductCommentsTypes} from "@/@types/types";
+import React, { useState, useEffect } from 'react'
+import { type ProductCommentsTypes } from '@/@types/types'
 import cl from '@/styles/modules/Comment.module.scss'
 
 const useCommentsRating = (initialComments: ProductCommentsTypes[]) => {
     const [stars, setStars] = useState<React.ReactNode[]>([])
-    const [rating, setRating] = useState(0);
-    const [commentsLength, setCommentsLength] = useState(0);
+    const [rating, setRating] = useState(0)
+    const [commentsLength, setCommentsLength] = useState(0)
 
     const calculateRatingAndLength = (comments: ProductCommentsTypes[]) => {
         if (comments && comments.length > 0) {
-            const totalRate = Number((comments.reduce((accum, curr) => accum + curr.rate, 0) / comments.length).toFixed(1));
-            setRating(totalRate);
-            setCommentsLength(comments.length);
+            const totalRate = Number((comments.reduce((accum, curr) => accum + curr.rate, 0) / comments.length).toFixed(1))
+            setRating(totalRate)
+            setCommentsLength(comments.length)
         } else {
-            setRating(0);
-            setCommentsLength(0);
+            setRating(0)
+            setCommentsLength(0)
         }
-    };
+    }
 
     useEffect(() => {
-        calculateRatingAndLength(initialComments);
-    }, [initialComments]);
+        calculateRatingAndLength(initialComments)
+    }, [initialComments])
 
     useEffect(() => {
         renderStars()
-    }, [rating]);
+    }, [rating])
 
     const renderStars = () => {
         const stars = Array.from({ length: 5 }, (_, index) => (
@@ -35,7 +35,7 @@ const useCommentsRating = (initialComments: ProductCommentsTypes[]) => {
         setStars(stars)
     }
 
-    return { rating, commentsLength, stars };
-};
+    return { rating, commentsLength, stars }
+}
 
-export default useCommentsRating;
+export default useCommentsRating

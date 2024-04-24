@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import cl from './MySelect.module.scss'
-import { type SelectProps } from '../../../@types/typesComponents'
-import { type SortType } from '../../../@types/types'
+import { type SelectProps } from '@/@types/typesComponents'
+import { type SortType } from '@/@types/types'
 
 const MySelect: React.FC<SelectProps> = ({ options, onChange, defaultValue, defaultName, value }) => {
     const [name, setName] = useState<string>('')

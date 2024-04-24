@@ -4,7 +4,7 @@ declare module '*.scss' {
 }
 
 declare module 'react-transition-group' {
-    export { CSSTransition, TransitionGroup } from 'react-transition-group'
+    export { TransitionGroup, CSSTransition } from 'react-transition-group'
 }
 
 declare module '*/Router'

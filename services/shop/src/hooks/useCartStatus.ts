@@ -1,13 +1,12 @@
-import {useSelector} from "react-redux";
-import {useMemo} from "react";
-import {cartSelector} from "../redux/slices/cartSlice";
-import {CartProduct} from "../@types/types";
+import { useSelector } from 'react-redux'
+import { useMemo } from 'react'
+import { cartSelector } from '@/redux/slices/cartSlice'
 
 export const useCartStatus = (productId: number) => {
     const cartState = useSelector(cartSelector)
-    const cart = Object.values(cartState) as CartProduct[]
+    const cart = Object.values(cartState)
 
     return useMemo(() => {
-        return !!cart.find(p => p.id === productId);
+        return !!cart.find(p => p.id === productId)
     }, [cartState, productId])
 }

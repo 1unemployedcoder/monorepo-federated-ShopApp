@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const BtnOrdinary = styled.div`
     display: flex;
@@ -15,6 +15,6 @@ const BtnOrdinary = styled.div`
     &:hover {
         background: linear-gradient(0deg, #ff8200, #ff9700);
     }
-`;
+`
 
 export default BtnOrdinary

@@ -1,5 +1,5 @@
-import React from "react"
-import ContentLoader from "react-content-loader"
+import React from 'react'
+import ContentLoader from 'react-content-loader'
 import news from '@/styles/modules/News.module.scss'
 import cat from '@/styles/modules/Categories.module.scss'
 const PageSkeleton: React.FC = (props) => (

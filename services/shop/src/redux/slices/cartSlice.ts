@@ -1,6 +1,6 @@
 import {createSlice, createEntityAdapter, PayloadAction} from "@reduxjs/toolkit"
-import {CartProduct, MergeProductComments} from "../../@types/types";
-import {cartCountValue} from "../../@types/reduxTypes";
+import {CartProduct, MergeProductComments} from "@/@types/types";
+import {cartCountValue} from "@/@types/reduxTypes";
 import {RootState} from "../store";
 const cartAdapter = createEntityAdapter<CartProduct>()
 

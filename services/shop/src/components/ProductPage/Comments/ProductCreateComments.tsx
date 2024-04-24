@@ -14,9 +14,9 @@ const ProductCreateComments: React.FC<createCommentRefresh> = ({ refresh }) => {
     const submitComment = async (e: FormEvent) => {
         e.preventDefault()
         if (path !== 'news') {
-            const response = await createProductComment(Number(id), comment)
+            await createProductComment(Number(id), comment)
         } else {
-            const response = await createNewsComment(Number(id), { description: comment.description })
+            await createNewsComment(Number(id), { description: comment.description })
         }
         await refresh()
         setComment({ description: '', rate: 1 })

@@ -1,9 +1,9 @@
-import React from 'react';
-import ProductList from "../Product/ProductList";
-import Pagination from "../Pagination";
-import {ProductsContentProps} from "@/@types/typesComponents";
+import React from 'react'
+import ProductList from '../Product/ProductList'
+import Pagination from '../Pagination'
+import { type ProductsContentProps } from '@/@types/typesComponents'
 
-const ProductsContent: React.FC<ProductsContentProps> = ({products, totalPages, setPage, page}) => {
+const ProductsContent: React.FC<ProductsContentProps> = ({ products, totalPages, setPage, page }) => {
     return (
         <div>
             <ProductList
@@ -15,7 +15,7 @@ const ProductsContent: React.FC<ProductsContentProps> = ({products, totalPages, 
                 currentPage={page}
             />
         </div>
-    );
-};
+    )
+}
 
-export default ProductsContent;
+export default ProductsContent

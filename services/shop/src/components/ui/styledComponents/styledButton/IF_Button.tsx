@@ -1,6 +1,6 @@
-import styled, {css, StyleSheetManager} from 'styled-components';
-import {IFButtonProps} from "../../../../@types/types"
-import React from "react";
+import styled, { css, StyleSheetManager } from 'styled-components'
+import { type IFButtonProps } from '@/@types/types'
+import React from 'react'
 
 const IFButtonBase = styled.div<IFButtonProps>`
     display: flex;
@@ -13,27 +13,26 @@ const IFButtonBase = styled.div<IFButtonProps>`
     border-radius: 0.5rem;
 
     ${props =>
-            props.primary
-                    ?
-                    css`
+        props.primary
+            ? css`
                         background: linear-gradient(0deg, #ff8200, #ff9700);
                     `
-                    : css`
+            : css`
                         background: transparent;
                         border: 1px #e7e6e6 solid;
 
                         &:hover {
                             background: linear-gradient(0deg, #ff8200, #ff9700);
                         }`
-    }
-`;
+}
+`
 
 const withStyledButton = <P extends object>(Component: React.ComponentType<P>) => (props: P & IFButtonProps) => (
     <StyleSheetManager shouldForwardProp={(prop) => prop !== 'primary'}>
         <Component {...props} />
     </StyleSheetManager>
-);
+)
 
-const IFButton = withStyledButton(IFButtonBase);
+const IFButton = withStyledButton(IFButtonBase)
 
-export default IFButton;
+export default IFButton

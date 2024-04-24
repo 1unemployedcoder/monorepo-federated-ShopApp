@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useFetching } from '@/hooks/useFetching'
-import { getCategories } from '../../../API/ProductService'
+import { getCategories } from '@/API/ProductService'
 import ConditionalContent from '../../ConditionalContent'
 import CategorySkeleton from './CategorySkeleton'
 import CategoriesList from './CategoriesList'

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState } from 'react'
 import MyModal from '../../ui/modal/MyModal'
 import BtnPrimary from '../../ui/styledComponents/styledButton/BtnPrimary'
 import BtnOrdinary from '../../ui/styledComponents/styledButton/BtnOrdinary'

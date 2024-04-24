@@ -1,10 +1,9 @@
-import React from 'react';
-import ProductItem from "./ProductItem";
-import {ToastContainer} from "react-toastify";
-import {ProductArrayProps} from "@/@types/typesComponents";
+import React from 'react'
+import ProductItem from './ProductItem'
+import { ToastContainer } from 'react-toastify'
+import { type ProductArrayProps } from '@/@types/typesComponents'
 
-const ProductList: React.FC<ProductArrayProps> = ({products}) => {
-
+const ProductList: React.FC<ProductArrayProps> = ({ products }) => {
     return (
         <div>
             <ToastContainer position="top-center" autoClose={2000}/>
@@ -16,7 +15,7 @@ const ProductList: React.FC<ProductArrayProps> = ({products}) => {
             )
             }
         </div>
-    );
-};
+    )
+}
 
-export default ProductList;
+export default ProductList

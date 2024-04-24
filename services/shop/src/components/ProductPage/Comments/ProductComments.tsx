@@ -6,16 +6,16 @@ import CommentItem from './CommentItem'
 import { type ProductCommentsProps } from '@/@types/typesComponents'
 import { type ProductCommentsTypes } from '@/@types/types'
 import cl from '@/styles/modules/Comment.module.scss'
-import {useSelector} from "react-redux";
-import type {RootState} from "@/redux/store";
-import {useLocation} from "react-router-dom";
+import { useSelector } from 'react-redux'
+import type { RootState } from '@/redux/store'
+import { useLocation } from 'react-router-dom'
 
 const ProductComments: React.FC<ProductCommentsProps> = ({ comments, refresh }) => {
     const { rating, stars } = useCommentsRating(comments as ProductCommentsTypes[])
     const { isAuth } = useSelector((state: RootState) => state.auth)
-    const location = useLocation();
-    const pathname = location.pathname;
-    const path = pathname.split('/')[2];
+    const location = useLocation()
+    const pathname = location.pathname
+    const path = pathname.split('/')[2]
     return (
         <div>
             {path !== 'news' && !isNaN(rating) &&

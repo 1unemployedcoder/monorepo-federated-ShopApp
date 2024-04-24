@@ -1,11 +1,11 @@
-import {useState} from "react";
-import {ArrayFetch, CallbackFunction} from "../@types/types";
+import { useState } from 'react'
+import { type ArrayFetch, type CallbackFunction } from '@/@types/types'
 
 export const useFetching = (callback: CallbackFunction) => {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState<string>('')
 
-    const fetchingPosts = async ():Promise<any> => {
+    const fetchingPosts = async (): Promise<any> => {
         try {
             setIsLoading(true)
             await callback()

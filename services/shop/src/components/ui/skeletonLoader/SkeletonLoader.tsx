@@ -1,16 +1,16 @@
-import React from 'react';
-import {SkeletonLoaderProps} from "../../../@types/typesComponents";
+import React from 'react'
+import { type SkeletonLoaderProps } from '@/@types/typesComponents'
 
-const SkeletonLoader: React.FC<SkeletonLoaderProps> = ({children}) => {
+const SkeletonLoader: React.FC<SkeletonLoaderProps> = ({ children }) => {
     return (
         <div>
-            {Array.from({length: 2}, (_, i) =>
+            {Array.from({ length: 2 }, (_, i) =>
                 <div key={i}>
                     {children}
                 </div>
             )}
         </div>
-    );
-};
+    )
+}
 
-export default SkeletonLoader;
+export default SkeletonLoader
