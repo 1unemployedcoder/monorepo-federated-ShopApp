@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material'
 import { createProduct } from '@/API/createDeleteAPI'
-import { type Category, type NewsPost, type Product } from '@/@types/types'
-import { useFetching } from '@/hooks/useFetching'
+import { type Category } from '@/@types/types'
 import { getCategories } from '@/API/readAPI'
+import { type NewsPost, type Product, useFetching } from '@packages/shared'
 interface CreateProductItemProps {
     refresh: () => Promise<Product | NewsPost>
 }

@@ -1,11 +1,10 @@
 import { Box, Pagination, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { useFetching } from '@/hooks/useFetching'
 import { getAll } from '@/API/readAPI'
-import { type Product } from '@/@types/types'
 import { type getProductType } from '@/@types/typesCRUD'
 import ProductItem from '@/Components/Product/ProductItem'
-import CreateProductItem from "@/Components/Product/CreateProductItem";
+import CreateProductItem from '@/Components/Product/CreateProductItem'
+import { type Product, useFetching } from '@packages/shared'
 const ProductList = () => {
     const [productSearch, setProductSearch] = useState<getProductType>({ search: '', page: 1 })
     const [products, setProducts] = useState<Product[] | null>(null)

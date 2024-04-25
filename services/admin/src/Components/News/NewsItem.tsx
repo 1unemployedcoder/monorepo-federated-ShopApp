@@ -10,10 +10,10 @@ import {
     DialogTitle,
     Typography
 } from '@mui/material'
-import type { NewsCommentsTypes, NewsPost, Product } from '@/@types/types'
+import type { NewsCommentsTypes } from '@/@types/types'
 import { deleteCommentNews, deleteNews } from '@/API/createDeleteAPI'
-import { useFetching } from '@/hooks/useFetching'
 import { getNewsById } from '@/API/readAPI'
+import { type NewsPost, type Product, useFetching } from '@packages/shared'
 interface NewsItemProps {
     neww: NewsPost
     refresh: () => Promise<NewsPost | Product>

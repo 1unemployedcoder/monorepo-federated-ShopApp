@@ -10,10 +10,10 @@ import {
     DialogTitle,
     Typography
 } from '@mui/material'
-import { type NewsPost, type Product, type ProductCommentsTypes } from '@/@types/types'
-import {deleteProduct, deleteProductComment} from '@/API/createDeleteAPI'
-import { useFetching } from '@/hooks/useFetching'
+import { type ProductCommentsTypes } from '@/@types/types'
+import { deleteProduct, deleteProductComment } from '@/API/createDeleteAPI'
 import { getProductById } from '@/API/readAPI'
+import { type NewsPost, type Product, useFetching } from '@packages/shared'
 interface ProductItemProps {
     product: Product
     refresh: () => Promise<NewsPost | Product>
@@ -86,7 +86,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, refresh }) => {
                             <DialogContentText>
                                 Рейтинг: {comm.rate} / 5
                             </DialogContentText>
-                            <Button onClick={() => deleteComment(comm.id)}>Удалить</Button>
+                            <Button onClick={async () => { await deleteComment(comm.id) }}>Удалить</Button>
                         </>
                     )}
                 </DialogContent>

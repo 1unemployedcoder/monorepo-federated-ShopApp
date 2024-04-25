@@ -3,8 +3,8 @@ import { Outlet, useOutlet } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import type { RootState } from '@/redux/store'
 import LogInPage from '@/pages/LogInPage'
-import { useOutletEmpty } from '@/hooks/useOutletEmpty'
 import ProductList from '@/pages/ProductList'
+import { useOutletEmpty } from '@packages/shared'
 const IsAuth = () => {
     const { status, isAuth } = useSelector((state: RootState) => state.auth)
     const outlet = useOutlet()
@@ -13,7 +13,7 @@ const IsAuth = () => {
         return 'Загрузка...'
     }
     if (isAuth) {
-        return isOutletEmpty ? <ProductList />: <Outlet />
+        return isOutletEmpty ? <ProductList /> : <Outlet />
     } else {
         return <LogInPage />
     }

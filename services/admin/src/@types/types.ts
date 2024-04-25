@@ -1,12 +1,6 @@
 // Интерфейсы
-export interface Product {
-    categoryId: number
-    description: string
-    name: string
-    id: number
-    img: string
-    price: number
-}
+
+import { type Product } from '@packages/shared'
 
 export interface Category {
     id: number
@@ -16,16 +10,6 @@ export interface Category {
 export interface fetchedProducts {
     rows: Product[]
     count: number
-}
-
-export interface NewsPost {
-    userId: number
-    user: User
-    date: string
-    description: string
-    id: number
-    img: string
-    title: string
 }
 interface User {
     name: string
@@ -38,7 +22,7 @@ export interface NewsCommentsTypes {
 }
 
 export interface gettedProductById {
-    productComments: ProductCommentsTypes[],
+    productComments: ProductCommentsTypes[]
     categoryId: number
     description: string
     name: string
@@ -63,7 +47,6 @@ export interface ProductCommentsTypes extends NewsCommentsTypes {
 }
 
 // Типы
-
 
 export interface msg {
     event: string

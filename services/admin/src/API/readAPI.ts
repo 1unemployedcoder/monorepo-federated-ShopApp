@@ -4,10 +4,10 @@ import {
     type Category,
     type fetchedProducts,
     type gettedNewsById,
-    type gettedProductById,
-    type NewsPost
+    type gettedProductById
 } from '@/@types/types'
 import { type getProductType } from '@/@types/typesCRUD'
+import { type NewsPost } from '@packages/shared'
 
 export async function getAll ({ search, page }: getProductType) {
     const response = await axios.get(`${BackendPath}/products/?search=${search}&page=${page}&limit=2`)

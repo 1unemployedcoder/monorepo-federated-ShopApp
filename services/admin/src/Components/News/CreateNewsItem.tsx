@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Button, TextField, Typography } from '@mui/material'
 import { createNews } from '@/API/createDeleteAPI'
-import { type NewsPost, type Product } from '@/@types/types'
+import { type NewsPost, type Product } from '@packages/shared'
 interface CreateProductItemProps {
     refresh: () => Promise<Product | NewsPost>
 }
