@@ -1,3 +1,3 @@
 export const totalPagesCalc = (totalCount: number, limit: number) => {
-    return Math.ceil(totalCount / limit)
+    return totalCount > 0 && limit > 0 ? Math.ceil(totalCount / limit) : 0
 }
