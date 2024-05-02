@@ -29,7 +29,7 @@
     "start": "webpack serve --env mode=development",
     "typecheck": "tsc",
     "test": "jest",
-    "lint": "eslint . --ext .ts --ext .js --fix"
+    "lint": "eslint . --ext .ts --ext .js"
   },
   "devDependencies": {
     "@packages/build-config": "*",

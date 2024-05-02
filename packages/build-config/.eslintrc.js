@@ -19,7 +19,8 @@ module.exports = {
     rules: {
         "@typescript-eslint/indent": ["error", 4],
         "react/react-in-jsx-scope": "off",
-        "@typescript-eslint/explicit-function-return-type": "off"
+        "@typescript-eslint/explicit-function-return-type": "off",
+        '@typescript-eslint/no-unnecessary-type-assertion': 'off'
     },
     settings: {
         "react": {

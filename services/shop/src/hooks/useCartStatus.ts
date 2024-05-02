@@ -7,6 +7,6 @@ export const useCartStatus = (productId: number) => {
     const cart = Object.values(cartState)
 
     return useMemo(() => {
-        return !!cart.find(p => p.id === productId)
+        return !(cart.find(p => p.id === productId) == null)
     }, [cartState, productId])
 }

@@ -14,7 +14,7 @@ const cartSlice = createSlice({
             const { id } = action.payload
             const existingProduct = state.entities[id]
 
-            if (existingProduct) {
+            if (existingProduct !== undefined && existingProduct !== null) {
                 state.entities[id].count++
             } else {
                 cartAdapter.addOne(state, {
@@ -29,7 +29,7 @@ const cartSlice = createSlice({
         changeCountCart (state, action: PayloadAction<{ id: number, value: cartCountValue }>) {
             const { id, value } = action.payload
             const product = state.entities[id]
-            if (!product) return
+            if (product === undefined || product === null) return
             if (value === 'plus') {
                 product.count++
             } else if (value === 'minus') {

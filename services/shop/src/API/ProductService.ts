@@ -3,7 +3,7 @@ import {
     type Category,
     type gettedNewsById,
     type gettedProductById,
-    type NewsPost, Product
+    type NewsPost, type Product
 } from '@/@types/types'
 import axios from 'axios'
 import { BackendPath } from '@/API/htttpSettings'
