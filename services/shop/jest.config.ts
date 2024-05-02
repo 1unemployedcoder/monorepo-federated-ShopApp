@@ -1,9 +1,8 @@
 import type { Config } from 'jest'
+import { JestConfig } from "@packages/build-config";
 
 const config: Config = {
-    transform: {},
-    preset: 'ts-jest',
-    testEnvironment: 'node'
+    ...JestConfig
 }
 
 export default config
