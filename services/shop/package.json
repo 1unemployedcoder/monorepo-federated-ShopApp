@@ -28,7 +28,8 @@
     "build:prod": "webpack --env mode=production",
     "start": "webpack serve --env mode=development",
     "typecheck": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint . --ext .ts --ext .js --fix"
   },
   "devDependencies": {
     "@packages/build-config": "*",

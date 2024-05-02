@@ -4,6 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { type BuildOptions } from './types/types'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin'
+import ESLintWebpackPlugin from 'eslint-webpack-plugin'
 import path from 'path'
 
 export function buildPlugins ({ mode, paths, analyzer }: BuildOptions): Configuration['plugins'] {
@@ -24,6 +25,7 @@ export function buildPlugins ({ mode, paths, analyzer }: BuildOptions): Configur
         plugins.push(new webpack.ProgressPlugin())
         plugins.push(new ForkTsCheckerWebpackPlugin())
         plugins.push(new ReactRefreshPlugin())
+        plugins.push(new ESLintWebpackPlugin())
     }
 
     if (isProd) {

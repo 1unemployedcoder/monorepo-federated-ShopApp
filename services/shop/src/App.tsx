@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { Outlet, useOutlet } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import cl from './styles/modules/App.module.scss'

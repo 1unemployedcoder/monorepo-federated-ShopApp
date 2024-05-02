@@ -1,27 +1,29 @@
-{
-    "env": {
+module.exports = {
+    parser: "@typescript-eslint/parser",
+    parserOptions: {
+        ecmaVersion: 2023,
+        sourceType: "module",
+        tsconfigRootDir: __dirname,
+    },
+    env: {
         "browser": true,
         "es2021": true
     },
-    "extends": [
+    extends: [
         "standard-with-typescript",
         "plugin:react/recommended"
     ],
-    "parserOptions": {
-        "ecmaVersion": 2023,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
+    plugins: [
+        "react",
     ],
-    "rules": {
+    rules: {
         "@typescript-eslint/indent": ["error", 4],
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/explicit-function-return-type": "off"
     },
-    "settings": {
+    settings: {
         "react": {
             "version": "detect"
         }
     }
-}
+};
