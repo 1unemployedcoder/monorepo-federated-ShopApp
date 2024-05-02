@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { App } from '@/Components/App'
-import ProductList from "@/pages/ProductList";
-import LogInPage from "@/pages/LogInPage";
-import NewsList from "@/pages/NewsList";
-import SupportPage from "@/pages/SupportPage";
+import ProductList from '@/pages/ProductList'
+import LogInPage from '@/pages/LogInPage'
+import NewsList from '@/pages/NewsList'
+import SupportPage from '@/pages/SupportPage'
 
 const routes = [
     {
@@ -12,20 +12,20 @@ const routes = [
         children: [
             {
                 path: '/admin/products',
-                element: <ProductList />,
+                element: <ProductList />
             },
             {
                 path: '/admin/news',
-                element: <NewsList />,
+                element: <NewsList />
             },
             {
                 path: '/admin/login',
-                element: <LogInPage />,
+                element: <LogInPage />
             },
             {
                 path: '/admin/support',
-                element: <SupportPage />,
-            },
+                element: <SupportPage />
+            }
         ]
     }
 ]

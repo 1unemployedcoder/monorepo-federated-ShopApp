@@ -71,7 +71,7 @@ const SupportPage = () => {
                 <Grid item xs={9}>
                     <Paper>
                         <List>
-                            {messages.map(message => (
+                            {connected && messages.map(message => (
                                 <ListItem key={message.id}>
                                     <ListItemText
                                         primary={message.userName}

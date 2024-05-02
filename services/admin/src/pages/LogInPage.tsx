@@ -6,7 +6,7 @@ import {
     TextField,
     Typography
 } from '@mui/material'
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { type RootState, useAppDispatch } from '@/redux/store'
 import { loger } from '@/redux/slices/authSlice'
 import { useNavigate } from 'react-router-dom'

@@ -75,7 +75,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, refresh }) => {
             <Dialog open={modal} onClose={closeModal}>
                 <DialogTitle>Комментарии</DialogTitle>
                 <DialogContent>
-                    {comments !== undefined && comments.map(comm =>
+                    {comments?.map(comm =>
                         <>
                             <DialogContentText>
                                 Автор: {comm.user === null ? 'User' : comm.user.name}

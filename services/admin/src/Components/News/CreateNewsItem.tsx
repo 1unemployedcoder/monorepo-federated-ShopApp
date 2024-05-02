@@ -18,7 +18,7 @@ const CreateNewsItem: React.FC<CreateProductItemProps> = ({ refresh }) => {
             img: String(data.get('img')),
             date: formattedDate
         })
-        refresh()
+        void refresh()
     }
     return (
         <Box onSubmit={createNeww} component="form" sx={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', gap: '10px', width: '15%' }}>

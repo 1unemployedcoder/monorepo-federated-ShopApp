@@ -70,7 +70,7 @@ const NewsItem: React.FC<NewsItemProps> = ({ neww, refresh }) => {
             <Dialog open={modal} onClose={closeModal}>
                 <DialogTitle>Комментарии</DialogTitle>
                 <DialogContent>
-                    {comments !== undefined && comments.map(comm =>
+                    {comments?.map(comm =>
                         <>
                             <DialogContentText>
                                 Автор: {comm.user === null ? 'User' : comm.user.name}

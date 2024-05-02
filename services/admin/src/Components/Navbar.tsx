@@ -1,14 +1,14 @@
-import {AppBar, Toolbar, Typography, Button} from '@mui/material'
+import { AppBar, Toolbar, Typography, Button } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import React, { useEffect } from 'react'
 import { type RootState, useAppDispatch } from '@/redux/store'
 import { checkAuth, setAuth } from '@/redux/slices/authSlice'
 import { useSelector } from 'react-redux'
-import CategoryIcon from '@mui/icons-material/Category';
-import NewspaperIcon from '@mui/icons-material/Newspaper';
-import ChatIcon from '@mui/icons-material/Chat';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import LoginIcon from '@mui/icons-material/Login';
+import CategoryIcon from '@mui/icons-material/Category'
+import NewspaperIcon from '@mui/icons-material/Newspaper'
+import ChatIcon from '@mui/icons-material/Chat'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import LoginIcon from '@mui/icons-material/Login'
 const Navbar = () => {
     const { user, isAuth } = useSelector((state: RootState) => state.auth)
     const dispatch = useAppDispatch()
@@ -19,7 +19,7 @@ const Navbar = () => {
         navigate('/admin/')
     }
     useEffect(() => {
-        dispatch(checkAuth())
+        void dispatch(checkAuth())
     }, [])
     return (
         <AppBar position="static">

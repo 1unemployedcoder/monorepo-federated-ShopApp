@@ -71,7 +71,7 @@ const CreateProductItem: React.FC<CreateProductItemProps> = ({ refresh }) => {
                     label="type"
                     onChange={e => { setType(e.target.value) }}
                 >
-                    {types !== undefined && types.map(tip =>
+                    {types?.map(tip =>
                         <MenuItem key={tip.id} value={tip.id}>{tip.name}</MenuItem>
                     )}
                 </Select>
