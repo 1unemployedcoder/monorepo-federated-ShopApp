@@ -6,7 +6,7 @@ const ErrorRefresh: React.FC<ErrorRefreshProps> = ({ error, refreshPage }) => {
     return (
         <div className={cl.errorRefresh}>
             <div className={cl.title}>Возникла ошибка: {error}</div>
-            <BtnOrdinary onClick={() => refreshPage ? refreshPage('') : null}>Обновить</BtnOrdinary>
+            <BtnOrdinary onClick={() => { if (refreshPage != null) { refreshPage('') } }}>Обновить</BtnOrdinary>
         </div>
     )
 }

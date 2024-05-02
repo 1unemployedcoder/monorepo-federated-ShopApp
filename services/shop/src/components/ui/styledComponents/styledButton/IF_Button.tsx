@@ -27,11 +27,13 @@ const IFButtonBase = styled.div<IFButtonProps>`
 }
 `
 
-const withStyledButton = <P extends object>(Component: React.ComponentType<P>) => (props: P & IFButtonProps) => (
-    <StyleSheetManager shouldForwardProp={(prop) => prop !== 'primary'}>
-        <Component {...props} />
-    </StyleSheetManager>
-)
+const withStyledButton = <P extends object>(Component: React.ComponentType<P>) => function foo (props: P & IFButtonProps) {
+    return (
+        <StyleSheetManager shouldForwardProp={(prop) => prop !== 'primary'}>
+            <Component {...props} />
+        </StyleSheetManager>
+    )
+}
 
 const IFButton = withStyledButton(IFButtonBase)
 

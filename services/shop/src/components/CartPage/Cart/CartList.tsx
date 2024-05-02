@@ -47,7 +47,7 @@ const CartList = () => {
                         {totalCount} ед.
                         {totalPrice}$
                     </div>
-                    {totalCount
+                    {(totalCount !== 0)
                         ? <BtnOrdinary>Оформить заказ</BtnOrdinary>
                         : <></>}
                 </div>

@@ -10,12 +10,11 @@ const Categories = () => {
     const [categories, setCategories] = useState<Category[]>([])
     const [fetchCategories, isLoadingCategories, errorCategories, setErrorCategories] = useFetching(async () => {
         const response = await getCategories()
-        // @ts-ignore
         setCategories(response)
     })
 
     useEffect(() => {
-        fetchCategories()
+        void fetchCategories()
     }, [errorCategories])
 
     return (

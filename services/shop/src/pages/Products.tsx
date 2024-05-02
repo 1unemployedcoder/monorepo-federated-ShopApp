@@ -16,12 +16,12 @@ import cl from '@/styles/modules/Products.module.scss'
 function Products () {
     const location = useLocation()
     const searchParams = new URLSearchParams(location.search)
-    const search = searchParams.get('search') || ''
-    const currentTypeID = searchParams.get('type') || ''
+    const search = searchParams.get('search') ?? ''
+    const currentTypeID = searchParams.get('type') ?? ''
     const currentCategoryName = localStorage.getItem('currentCategoryName')
     const [sort, setSort] = useState<SortType>('')
     const [totalPages, setTotalPages] = useState<number>(0)
-    const [limit, setLimit] = useState<number>(5)
+    const [limit] = useState<number>(5)
     const [page, setPage] = useState<number>(1)
 
     const dispatch = useAppDispatch()
@@ -35,7 +35,7 @@ function Products () {
     }, [dispatch])
 
     useEffect(() => {
-        dispatch(fetchProducts({ search, sort, limit, page, typeId: currentTypeID }))
+        void dispatch(fetchProducts({ search, sort, limit, page, typeId: currentTypeID }))
     }, [sort, page, search])
 
     useEffect(() => {
@@ -53,7 +53,7 @@ function Products () {
                     {`SHOP | ${currentCategoryName ?? 'Купить...'}`}
                 </title>
             </Helmet>
-            {search && (items.length > 0)
+            {(search !== '') && (items.length > 0)
                 ? <div>
                     <h1 className={cl.title}>{currentCategoryName}</h1>
                     <div className={cl.title}>Результаты поиска по: {search}</div>

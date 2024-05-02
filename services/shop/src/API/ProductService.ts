@@ -20,7 +20,7 @@ export async function getProductById (id: number) {
 
 export async function getCategories () {
     const response = await axios.get(`${BackendPath}/type`)
-    return response.data as Category
+    return response.data as Category[]
 }
 
 export async function getPopular () {

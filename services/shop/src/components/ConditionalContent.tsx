@@ -11,9 +11,9 @@ const ConditionalContent: React.FC<ConditionalContentProps> = ({ data, isLoading
                 <SkeletonComponent/>
             </SkeletonLoader>
         )
-    } else if (error) {
+    } else if (error !== '') {
         return <ErrorRefresh error={error} refreshPage={refresh}/>
-    } else if (data) {
+    } else if (data !== 0) {
         return children
     } else {
         return <UndefinedProducts search={search}/>

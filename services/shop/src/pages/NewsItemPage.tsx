@@ -12,7 +12,7 @@ import { getNewsById } from '@/API/ProductService'
 
 const NewsItemPage = () => {
     const { id } = useParams() // id новости
-    const [newsPost, setNewsPost] = useState<gettedNewsById | null>(null);
+    const [newsPost, setNewsPost] = useState<gettedNewsById | null>(null)
     const [fetchingNews, isLoading, error, setError] = useFetching(async () => {
         const data = await getNewsById(Number(id))
         setNewsPost(data)
@@ -42,7 +42,7 @@ const NewsItemPage = () => {
                     author={newsPost.user.name}
                     date={newsPost.date}
                     isOpen={true}
-                    />
+                />
                 <ProductComments comments={newsPost.newsComments} refresh={fetchingNews}/>
             </ConditionalContent></>
             }

@@ -10,7 +10,7 @@ const MySelect: React.FC<SelectProps> = ({ options, onChange, defaultValue, defa
 
     useEffect(() => {
         const handleClickOutside = (event: KeyboardEvent | MouseEvent) => {
-            if ((ref.current && !ref.current.contains(event.target as Node)) || (event instanceof KeyboardEvent && event.key === 'Escape')) {
+            if (((ref.current != null) && !ref.current.contains(event.target as Node)) ?? (event instanceof KeyboardEvent && event.key === 'Escape')) {
                 setIsOpen(false)
             }
         }
@@ -26,7 +26,7 @@ const MySelect: React.FC<SelectProps> = ({ options, onChange, defaultValue, defa
 
     useEffect(() => {
         const selectedOption = options.find(option => option.value === value)
-        if (selectedOption) {
+        if (selectedOption != null) {
             setName(selectedOption.name)
         } else {
             setName(defaultName)
@@ -48,7 +48,7 @@ const MySelect: React.FC<SelectProps> = ({ options, onChange, defaultValue, defa
         <div className={cl.mySelect} ref={ref}>
             Сортировка:
             <div className={isOpen ? cl.openOptions : cl.selectedOption} onClick={handleToggle}>
-                {name || defaultName}
+                {(name !== '') || defaultName}
             </div>
             {isOpen && (
                 <div className={cl.options}>

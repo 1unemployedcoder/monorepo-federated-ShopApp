@@ -13,14 +13,14 @@ const CartButton = () => {
     return (
         <div>
             <BtnOrdinary onClick={() => { navigate('/shop/cart/') }}>
-                {totalCount
+                {(totalCount !== 0)
                     ? <div className={cl.gold}>
                         {totalPrice}$
                     </div>
                     : <>Корзина</>
                 }
             </BtnOrdinary>
-            {totalCount
+            {(totalCount !== 0)
                 ? <div>
                     <span className={cl.cartCount}>
                         {totalCount}

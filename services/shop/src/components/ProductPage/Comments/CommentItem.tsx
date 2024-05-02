@@ -35,7 +35,7 @@ const CommentItem: React.FC<CommentItemProps> = ({ comment, refresh }) => {
                     </div>
                     <div className={cl.comment__body}>
                         {comment.description}
-                        {'rate' in comment && !!comment.rate &&
+                        {'rate' in comment && !(comment.rate === 0) &&
                             <div className={cl.comment__rate}>
                                 <b>Оценка: {comment.rate}/5</b>
                             </div>

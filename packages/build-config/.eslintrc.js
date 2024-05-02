@@ -20,7 +20,12 @@ module.exports = {
         "@typescript-eslint/indent": ["error", 4],
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
-        '@typescript-eslint/no-unnecessary-type-assertion': 'off'
+        '@typescript-eslint/no-unnecessary-type-assertion': 'off',
+        "@typescript-eslint/no-misused-promises": [2, {
+            "checksVoidReturn": {
+                "attributes": false
+            }
+        }]
     },
     settings: {
         "react": {

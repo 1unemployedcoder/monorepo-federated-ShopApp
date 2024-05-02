@@ -8,7 +8,7 @@ const useCommentsRating = (initialComments: ProductCommentsTypes[]) => {
     const [commentsLength, setCommentsLength] = useState(0)
 
     const calculateRatingAndLength = (comments: ProductCommentsTypes[]) => {
-        if (comments && comments.length > 0) {
+        if (comments !== null && comments.length > 0) {
             const totalRate = Number((comments.reduce((accum, curr) => accum + curr.rate, 0) / comments.length).toFixed(1))
             setRating(totalRate)
             setCommentsLength(comments.length)

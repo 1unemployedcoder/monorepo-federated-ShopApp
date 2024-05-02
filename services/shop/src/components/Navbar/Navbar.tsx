@@ -11,7 +11,7 @@ const Navbar = () => {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
     useEffect(() => {
-        dispatch(checkAuth())
+        void dispatch(checkAuth())
     }, [])
     return (
         <nav className={cl.navbar}>

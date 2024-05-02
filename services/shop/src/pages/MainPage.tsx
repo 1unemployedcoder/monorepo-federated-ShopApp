@@ -1,4 +1,4 @@
-import React, {ReactNode, useEffect, useState} from 'react'
+import React, { type ReactNode, useEffect, useState } from 'react'
 import { setCategory } from '@/redux/slices/categoriesSlice'
 import Carousel from '../components/MainPage/Carousel/Carousel'
 import Categories from '../components/MainPage/Categories/Categories'

@@ -12,7 +12,7 @@ const AuthPage = () => {
     const dispatch = useAppDispatch()
     const signIn = async (e: any) => {
         e.preventDefault()
-        dispatch(register(user))
+        void dispatch(register(user))
         navigate('/shop/')
     }
     return (
