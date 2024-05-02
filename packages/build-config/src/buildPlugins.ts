@@ -25,7 +25,13 @@ export function buildPlugins ({ mode, paths, analyzer }: BuildOptions): Configur
         plugins.push(new webpack.ProgressPlugin())
         plugins.push(new ForkTsCheckerWebpackPlugin())
         plugins.push(new ReactRefreshPlugin())
-        plugins.push(new ESLintWebpackPlugin())
+        plugins.push(new ESLintWebpackPlugin({
+            extensions: ['ts', 'tsx'],
+            fix: false,
+            emitError: true,
+            emitWarning: true,
+            failOnError: true
+        }))
     }
 
     if (isProd) {
