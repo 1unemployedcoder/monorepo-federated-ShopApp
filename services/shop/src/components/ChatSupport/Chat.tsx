@@ -67,7 +67,7 @@ const Chat = () => {
                                 {messages.map(msg =>
                                     <div key={msg.id} className={msg.event === 'connection' || userName !== msg.userName ? cl.msg_user : cl.msg_admin}>
                                         {msg.event === 'connection'
-                                            ? <div>Пользователь {msg.userName} подключился к чату</div>
+                                            ? <div>{userName !== msg.userName ? 'Администратор подключился' : 'Подключено'}</div>
                                             : <div>{userName !== msg.userName ? 'Администратор: ' : 'Вы: '}{msg.message}</div>
                                         }
                                     </div>

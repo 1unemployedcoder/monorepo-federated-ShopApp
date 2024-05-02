@@ -1,5 +1,3 @@
-// Интерфейсы
-
 import { type Product } from '@packages/shared'
 
 export interface Category {
@@ -10,9 +8,6 @@ export interface Category {
 export interface fetchedProducts {
     rows: Product[]
     count: number
-}
-interface User {
-    name: string
 }
 export interface NewsCommentsTypes {
     user: User
@@ -30,7 +25,9 @@ export interface gettedProductById {
     img: string
     price: number
 }
-
+interface User {
+    name: string
+}
 export interface gettedNewsById {
     description: string
     user: User
@@ -46,12 +43,9 @@ export interface ProductCommentsTypes extends NewsCommentsTypes {
     rate: number
 }
 
-// Типы
-
 export interface msg {
     event: string
     userName: string
     id: number
     message: string
 }
-export type eventData = 'connection' | 'message'

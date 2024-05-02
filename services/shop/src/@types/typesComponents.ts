@@ -1,13 +1,14 @@
-import React, {ReactNode} from "react";
+import { type ReactNode } from 'react'
+import type React from 'react'
 import {
-    CartProduct,
-    Category,
-    MergeProductComments,
-    NewsCommentsTypes, NewsPost,
-    Product,
-    ProductCommentsTypes,
-    SortType
-} from "./types";
+    type CartProduct,
+    type Category,
+    type MergeProductComments,
+    type NewsCommentsTypes, type NewsPost,
+    type Product,
+    type ProductCommentsTypes,
+    type SortType
+} from './types'
 
 export interface ConditionalContentProps {
     data: number
@@ -85,7 +86,7 @@ export interface ErrorRefreshProps {
 
 export interface ProductCommentsProps {
     comments: ProductCommentsTypes[] | NewsCommentsTypes[]
-    refresh: () => Promise<Product | NewsPost>;
+    refresh: () => Promise<Product | NewsPost>
 }
 
 export interface CommentItemProps {
@@ -130,5 +131,5 @@ export interface CartItemProps {
 }
 
 export interface createCommentRefresh {
-    refresh: () => Promise<Product | NewsPost>;
+    refresh: () => Promise<Product | NewsPost>
 }

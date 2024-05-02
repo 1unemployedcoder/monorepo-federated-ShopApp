@@ -1,3 +1,7 @@
+interface User {
+    name: string
+}
+
 export interface Product {
     categoryId: number
     description: string
@@ -14,8 +18,4 @@ export interface NewsPost {
     id: number
     img: string
     title: string
-}
-
-interface User {
-    name: string
 }

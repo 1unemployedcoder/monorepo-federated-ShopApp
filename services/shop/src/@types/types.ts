@@ -44,7 +44,7 @@ export interface MergeProductComments extends Product {
 }
 
 export interface gettedProductById {
-    productComments: ProductCommentsTypes[],
+    productComments: ProductCommentsTypes[]
     categoryId: number
     description: string
     name: string
