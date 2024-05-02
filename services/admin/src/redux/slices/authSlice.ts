@@ -3,7 +3,7 @@ import { type AuthSlice, Status } from '@/@types/reduxTypes'
 import { type AuthUser, type CreatedUser } from '@/@types/typesCRUD'
 import { check, login } from '@/API/ProductService'
 
-export const checkAuth = createAsyncThunk<CreatedUser, void>(
+export const checkAuth = createAsyncThunk(
     'auth/checkAuth',
     async (_) => {
         const response = await check()
