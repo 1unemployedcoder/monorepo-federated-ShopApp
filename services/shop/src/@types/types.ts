@@ -3,7 +3,7 @@ import type React from 'react'
 // Интерфейсы
 
 export interface Product {
-    categoryId: number
+    typeId: number
     description: string
     name: string
     id: number

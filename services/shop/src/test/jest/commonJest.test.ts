@@ -1,4 +1,4 @@
-import { totalPagesCalc } from '../../utils/totalPagesCalc'
+import { totalPagesCalc } from '@/utils/totalPagesCalc'
 
 describe('Калькулятор страниц', () => {
     test('Деление с остатком', () => {
@@ -22,7 +22,7 @@ describe('Калькулятор страниц', () => {
     })
 
     test('Отрицательное общее количество', () => {
-        expect(totalPagesCalc(-10, 10)).toEqual(0);
+        expect(totalPagesCalc(-10, 10)).toEqual(0)
     })
 
     test('Отрицательный лимит', () => {
