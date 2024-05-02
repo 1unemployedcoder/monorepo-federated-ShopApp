@@ -10,7 +10,7 @@ export function buildBabelLoader (options: BuildOptions): object {
             loader: 'babel-loader',
             options: {
                 presets: [
-                    '@babel/preset-env',
+                    ['@babel/preset-env', { targets: { node: 'current' } }],
                     '@babel/preset-typescript',
                     ['@babel/preset-react',
                         {

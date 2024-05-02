@@ -7,14 +7,16 @@ module.exports = {
     },
     env: {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest/globals": true
     },
     extends: [
         "standard-with-typescript",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
     ],
     plugins: [
         "react",
+        "jest"
     ],
     rules: {
         "@typescript-eslint/indent": ["error", 4],
