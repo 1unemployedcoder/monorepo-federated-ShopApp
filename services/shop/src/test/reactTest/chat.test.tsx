@@ -1,19 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
-import { store } from '@/redux/store'
-import { Provider } from 'react-redux'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { Chat } from '@/components/ChatSupport/Chat'
+import { WrapperReact } from '@/test/helpers/wrapperReact'
 describe('Chat tests', () => {
     test('Open chat and login', async () => {
-        render(
-            <Provider store={store}>
-                <Router>
-                    <Chat />
-                </Router>
-            </Provider>
-        )
+        WrapperReact(<Chat/>)
         const openChatButton = screen.getByText(/Открыть чат/i)
 
         expect(screen.queryByText(/Ваше имя:/i)).toBeNull()

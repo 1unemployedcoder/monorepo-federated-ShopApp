@@ -1,8 +1,6 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { WrapperReact } from '@/test/helpers/wrapperReact'
 import '@testing-library/jest-dom'
-import { store } from '@/redux/store'
-import { Provider } from 'react-redux'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Products from '@/pages/Products'
 import type { getAllTest } from '@/test/@types/jestTypes'
 import axios from 'axios'
@@ -69,13 +67,7 @@ describe('Products tests', () => {
     })
     test('Fetching products', async () => {
         axiosMock.mockResolvedValue({ data: response })
-        render(
-            <Provider store={store}>
-                <Router>
-                    <Products />
-                </Router>
-            </Provider>
-        )
+        WrapperReact(<Products/>)
         const products = await screen.findAllByTestId('product')
         expect(products).toHaveLength(5)
         expect(axiosMock).toHaveBeenCalledTimes(1)
