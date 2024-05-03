@@ -17,7 +17,7 @@ function Products () {
     const location = useLocation()
     const searchParams = new URLSearchParams(location.search)
     const search = searchParams.get('search') ?? ''
-    const currentTypeID = searchParams.get('type') ?? ''
+    const currentTypeID = searchParams.get('type') || ''
     const currentCategoryName = localStorage.getItem('currentCategoryName')
     const [sort, setSort] = useState<SortType>('')
     const [totalPages, setTotalPages] = useState<number>(0)

@@ -1,6 +1,6 @@
-import React from 'react'
-import MySelect from '../../ui/select/MySelect'
+import MySelect from '@/components/ui/select/MySelect'
 import { type ProductFilterProps } from '@/@types/typesComponents'
+import React from 'react'
 
 const ProductFilter: React.FC<ProductFilterProps> = ({ sort, setSort }) => {
     return (

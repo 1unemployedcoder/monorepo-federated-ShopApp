@@ -48,7 +48,7 @@ const MySelect: React.FC<SelectProps> = ({ options, onChange, defaultValue, defa
         <div className={cl.mySelect} ref={ref}>
             Сортировка:
             <div className={isOpen ? cl.openOptions : cl.selectedOption} onClick={handleToggle}>
-                {(name !== '') || defaultName}
+                {name || defaultName}
             </div>
             {isOpen && (
                 <div className={cl.options}>
