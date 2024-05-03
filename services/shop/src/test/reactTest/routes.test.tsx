@@ -1,10 +1,13 @@
-import { act, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { App } from '@/App'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import { Provider } from 'react-redux'
 import { store } from '@/redux/store'
 import { MemoryRouter } from 'react-router-dom'
+import Products from '@/pages/Products'
+import axios from 'axios'
+const axiosMock = jest.spyOn(axios, 'get')
 describe('Router', () => {
     test('cart route', async () => {
         render(
@@ -16,9 +19,7 @@ describe('Router', () => {
         )
         const cartClick = screen.getByTestId('cartClick')
 
-        await act(async () => {
-            await userEvent.click(cartClick)
-        })
+        await userEvent.click(cartClick)
 
         setTimeout(() => {
             expect(screen.getByTestId('cartLink')).toBeInTheDocument()
@@ -34,9 +35,7 @@ describe('Router', () => {
         )
         const mainClick = screen.getByTestId('mainClick')
 
-        await act(async () => {
-            await userEvent.click(mainClick)
-        })
+        await userEvent.click(mainClick)
 
         setTimeout(() => {
             expect(screen.getByTestId('mainLink')).toBeInTheDocument()
@@ -54,5 +53,24 @@ describe('Router', () => {
         setTimeout(() => {
             expect(screen.getByTestId('undefinedLink')).toBeInTheDocument()
         }, 1000)
+    })
+    test('product details test', async () => {
+        render(
+            <Provider store={store}>
+                <MemoryRouter>
+                    <Products />
+                </MemoryRouter>
+            </Provider>
+        )
+        const products = await screen.findAllByTestId('product')
+        expect(products).toHaveLength(5)
+        expect(axiosMock).toHaveBeenCalledTimes(1)
+        await userEvent.click(products[0])
+        setTimeout(() => {
+            expect(screen.getByTestId('productPageLink')).toBeInTheDocument()
+        }, 1000)
+    })
+    afterEach(() => {
+        jest.clearAllMocks()
     })
 })

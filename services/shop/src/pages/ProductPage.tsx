@@ -30,7 +30,7 @@ const ProductPage = () => {
         void fetchingPosts()
     }, [error])
     return (
-        <div className={cl.productComponent}>
+        <div data-testid='productPageLink' className={cl.productComponent}>
             <Helmet>
                 <title>
                     {`SHOP | ${product.name ?? 'Купить...'}`}
