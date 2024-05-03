@@ -5,7 +5,7 @@ import BtnPrimary from '@/components/ui/styledComponents/styledButton/BtnPrimary
 import { useSelector } from 'react-redux'
 import type { RootState } from '@/redux/store'
 import { type eventData, type msg } from '@/@types/types'
-const Chat = () => {
+export const Chat = () => {
     const [messages, setMessages] = useState<msg[]>([])
     const [value, setValue] = useState('')
     const { user } = useSelector((state: RootState) => state.auth)
@@ -85,5 +85,3 @@ const Chat = () => {
         </div>
     )
 }
-
-export default Chat

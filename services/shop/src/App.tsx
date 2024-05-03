@@ -6,7 +6,7 @@ import { store } from '@/redux/store'
 import { Provider } from 'react-redux'
 import MainPage from '@/pages/MainPage'
 import { useOutletEmpty } from '@/hooks/useOutletEmpty'
-import Chat from '@/components/ChatSupport/Chat'
+import { Chat } from '@/components/ChatSupport/Chat'
 
 export const App = (): React.ReactNode => {
     const outlet = useOutlet()
