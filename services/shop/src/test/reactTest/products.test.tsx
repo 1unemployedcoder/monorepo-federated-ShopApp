@@ -4,7 +4,7 @@ import '@testing-library/jest-dom'
 import { store } from '@/redux/store'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
-import Products from "@/pages/Products";
+import Products from '@/pages/Products'
 describe('Chat tests', () => {
     beforeEach(() => {
         render(

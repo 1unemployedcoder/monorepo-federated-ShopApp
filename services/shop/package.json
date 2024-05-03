@@ -30,7 +30,7 @@
     "start": "webpack serve --env mode=development",
     "typecheck": "tsc",
     "test": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js",
-    "lint": "eslint . --ext .ts --ext .js"
+    "lint": "eslint . --ext .ts --ext .js --ext .tsx --ext .jsx"
   },
   "devDependencies": {
     "@packages/build-config": "*",
