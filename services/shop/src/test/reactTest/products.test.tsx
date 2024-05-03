@@ -79,6 +79,5 @@ describe('Products tests', () => {
         const products = await screen.findAllByTestId('product')
         expect(products).toHaveLength(5)
         expect(axiosMock).toHaveBeenCalledTimes(1)
-        screen.debug()
     })
 })

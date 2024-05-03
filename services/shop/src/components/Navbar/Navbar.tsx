@@ -16,7 +16,7 @@ const Navbar = () => {
     return (
         <nav className={cl.navbar}>
             <div className={cl.navbar__content}>
-                <BtnPrimary className={cl.white} onClick={() => { navigate('/shop/') }}>SHOP</BtnPrimary>
+                <BtnPrimary data-testid='mainClick' className={cl.white} onClick={() => { navigate('/shop/') }}>SHOP</BtnPrimary>
                 <SearchNav />
                 <CartButton/>
                 <LogInModal/>

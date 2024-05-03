@@ -22,7 +22,7 @@ const MainPage = (): ReactNode => {
     }, [dispatch])
 
     return (
-        <div className={cl.mainPage}>
+        <div data-testid='mainLink' className={cl.mainPage}>
             <Helmet>
                 <title>
                     SHOP | Главная

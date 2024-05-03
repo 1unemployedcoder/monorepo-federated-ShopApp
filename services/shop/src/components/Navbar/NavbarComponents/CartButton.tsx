@@ -12,7 +12,7 @@ const CartButton = () => {
     const navigate = useNavigate()
     return (
         <div>
-            <BtnOrdinary onClick={() => { navigate('/shop/cart/') }}>
+            <BtnOrdinary data-testid='cartClick' onClick={() => { navigate('/shop/cart/') }}>
                 {(totalCount !== 0)
                     ? <div className={cl.gold}>
                         {totalPrice}$

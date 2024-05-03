@@ -13,7 +13,7 @@ const Cart = () => {
         }))
     }, [dispatch])
     return (
-        <div>
+        <div data-testid='cartLink'>
             <Helmet>
                 <title>
                     SHOP | Корзина

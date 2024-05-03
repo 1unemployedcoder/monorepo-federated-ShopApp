@@ -15,7 +15,7 @@ const Undefined = () => {
         }))
     }, [dispatch])
     return (
-        <div className={cl.undefined}>
+        <div data-testid='undefinedLink' className={cl.undefined}>
             <Helmet>
                 <title>
                     SHOP | Ошибка
