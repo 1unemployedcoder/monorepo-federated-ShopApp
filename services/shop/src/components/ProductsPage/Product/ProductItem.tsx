@@ -24,7 +24,7 @@ const ProductItem: React.FC<ProductObjectProps> = ({ product }) => {
     }
 
     return (
-        <div className={cl.post}>
+        <div className={cl.post} data-testid='product'>
             <ToastContainer containerId={product.id} position="top-center" autoClose={2000}/>
             <div onClick={() => { navigate(`/shop/products/${product.id}`) }} className={cl.post__content}>
                 <img src={product.img} alt={product.name}/>

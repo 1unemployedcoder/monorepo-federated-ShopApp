@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Chat } from '@/components/ChatSupport/Chat'
 describe('Chat tests', () => {
-    beforeEach(() => {
+    test('Open chat and login', async () => {
         render(
             <Provider store={store}>
                 <Router>
@@ -14,8 +14,6 @@ describe('Chat tests', () => {
                 </Router>
             </Provider>
         )
-    })
-    test('Open chat and login', async () => {
         const openChatButton = screen.getByText(/Открыть чат/i)
 
         expect(screen.queryByText(/Ваше имя:/i)).toBeNull()

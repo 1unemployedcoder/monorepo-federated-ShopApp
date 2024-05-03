@@ -1,21 +1,6 @@
 import axios from 'axios'
 import { getAll } from '@/API/ProductService'
 import { type getAllTest } from '@/test/@types/jestTypes'
-jest.mock('axios', () => {
-    const originalAxios = jest.requireActual('axios')
-    return {
-        ...originalAxios,
-        create: jest.fn(() => ({
-            interceptors: {
-                request: {
-                    use: jest.fn()
-                }
-            },
-            get: jest.fn()
-        }))
-    }
-})
-
 describe('Async test', () => {
     let response: getAllTest
 
