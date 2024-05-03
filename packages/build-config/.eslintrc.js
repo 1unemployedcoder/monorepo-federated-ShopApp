@@ -13,10 +13,12 @@ module.exports = {
     extends: [
         "standard-with-typescript",
         "plugin:react/recommended",
+        'plugin:testing-library/react'
     ],
     plugins: [
         "react",
-        "jest"
+        "jest",
+        'testing-library'
     ],
     rules: {
         "@typescript-eslint/indent": ["error", 4],
@@ -32,7 +34,11 @@ module.exports = {
         "jest/no-focused-tests": "error",
         "jest/no-identical-title": "error",
         "jest/prefer-to-have-length": "warn",
-        "jest/valid-expect": "error"
+        "jest/valid-expect": "error",
+        'testing-library/await-async-queries': 'error',
+        'testing-library/no-await-sync-queries': 'error',
+        'testing-library/no-debugging-utils': 'warn',
+        'testing-library/no-dom-import': 'off',
     },
     settings: {
         "react": {

@@ -29,7 +29,7 @@ export interface fetchProductsSlice {
 }
 
 export interface fetchedProducts {
-    rows: Product[]
+    rows: MergeProductComments[]
     count: number
 }
 

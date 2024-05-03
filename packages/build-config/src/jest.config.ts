@@ -1,12 +1,12 @@
-import type { Config } from 'jest'
-import {pathsToModuleNameMapper} from "ts-jest";
-const paths = {
-    "@/*": ["src/*"]
-};
+import type {Config} from 'jest'
 
 export const JestConfig: Config = {
-        transform: {},
-        preset: 'ts-jest',
-        testEnvironment: 'node',
-        moduleNameMapper: pathsToModuleNameMapper(paths, { prefix: '<rootDir>/' } )
+    transform: {
+        "^.+\\.scss$": ["jest-transform-css", { modules: true }]
+    },
+    preset: 'ts-jest',
+    testEnvironment: 'jsdom',
+    moduleNameMapper: {
+        '^@/(.*)$': '<rootDir>/src/$1',
+    }
 };
