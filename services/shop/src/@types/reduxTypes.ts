@@ -1,4 +1,4 @@
-import { type Category, type MergeProductComments, type Product, type SortType } from './types'
+import { type Category, type MergeProductComments, type SortType } from './types'
 
 export enum Status {
     LOADING = 'loading',
