@@ -4,7 +4,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import type { cartCountValue } from '@/@types/reduxTypes'
 describe('cartSlice', () => {
     test('initCartSlice', () => {
-        expect(cartSelectorTest({ cart: cartTestInitState }))
+        expect(cartSelectorTest({ cart: cartTestInitState })).toBeDefined()
     })
 
     test('should return entities from cart state', () => {

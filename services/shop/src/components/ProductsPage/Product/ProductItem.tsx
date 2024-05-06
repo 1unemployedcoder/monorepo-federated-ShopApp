@@ -39,7 +39,7 @@ const ProductItem: React.FC<ProductObjectProps> = ({ product }) => {
             </div>
             <div className={cl.post__btns}>
                 <div className={cl.post__btn}>
-                    <IFButton primary={!isProduct} onClick={() => { addToCart(product) }}>
+                    <IFButton data-testid='addToCart' primary={!isProduct} onClick={() => { addToCart(product) }}>
                         {isProduct
                             ? <div>В корзине</div>
                             : <div>В корзину</div>

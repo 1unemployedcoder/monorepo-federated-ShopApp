@@ -4,6 +4,8 @@ import '@testing-library/jest-dom'
 import Products from '@/pages/Products'
 import type { getAllTest } from '@/test/@types/jestTypes'
 import axios from 'axios'
+import userEvent from '@testing-library/user-event'
+import { store } from '@/redux/store'
 const axiosMock = jest.spyOn(axios, 'get')
 describe('Products tests', () => {
     let response: getAllTest
@@ -71,5 +73,22 @@ describe('Products tests', () => {
         const products = await screen.findAllByTestId('product')
         expect(products).toHaveLength(5)
         expect(axiosMock).toHaveBeenCalledTimes(1)
+    })
+
+    test('React Redux add to cart', async () => {
+        WrapperReact(<Products/>)
+        const addToCart = await screen.findAllByTestId('addToCart')
+        setTimeout(() => {
+            expect(addToCart[0]).toContainHTML('В корзину')
+        }, 1000)
+        await userEvent.click(addToCart[0])
+        setTimeout(() => {
+            expect(addToCart[0]).toContainHTML('В корзине')
+        }, 1000)
+
+        const state = store.getState()
+
+        expect(state.cart.entities).toHaveProperty('1')
+        expect(state.cart.ids).toContain(1)
     })
 })
