@@ -46,5 +46,13 @@ module.exports = {
         "react": {
             "version": "detect"
         }
-    }
+    },
+    overrides: [
+        {
+            files: ["*.cy.ts", "*.cy.tsx"],
+            rules: {
+                "jest/valid-expect": "off"
+            }
+        }
+    ]
 };
