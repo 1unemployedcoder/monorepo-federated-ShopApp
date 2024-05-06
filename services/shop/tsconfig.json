@@ -8,10 +8,5 @@
     },
 
   },
-  "exclude": ["node_modules"],
-  "ts-node": {
-    "compilerOptions": {
-      "module": "ES2015",
-    }
-  }
+  "exclude": ["node_modules"]
 }
