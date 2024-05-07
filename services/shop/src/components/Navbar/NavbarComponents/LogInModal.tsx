@@ -59,7 +59,7 @@ const LogInModal = () => {
                             value={logUser.password}
                             onChange={e => { setLogUser({ ...logUser, password: e.target.value }) }}
                         />
-                        <BtnPrimary onClick={login}>Вход</BtnPrimary>
+                        <BtnPrimary onClick={login}>Войти</BtnPrimary>
                     </form>
                     <BtnOrdinary onClick={toAuth}>У меня нет аккаунта</BtnOrdinary>
                 </div>
