@@ -6,13 +6,12 @@ import type { getAllTest } from '@/test/@types/jestTypes'
 import axios from 'axios'
 import userEvent from '@testing-library/user-event'
 import { store } from '@/redux/store'
-const axiosMock = jest.spyOn(axios, 'get')
 describe('Products tests', () => {
     let response: getAllTest
 
     beforeEach(() => {
         response = {
-            count: 4,
+            count: 5,
             rows: [
                 {
                     name: 'MacBook',
@@ -68,10 +67,11 @@ describe('Products tests', () => {
         }
     })
     test('Fetching products', async () => {
+        const axiosMock = jest.spyOn(axios, 'get')
         axiosMock.mockResolvedValue({ data: response })
         WrapperReact(<Products/>)
         const products = await screen.findAllByTestId('product')
-        expect(products).toHaveLength(5)
+        expect(products).toHaveLength(response.rows.length)
         expect(axiosMock).toHaveBeenCalledTimes(1)
     })
 
