@@ -1,5 +1,5 @@
-import BtnOrdinary from '../../src/components/ui/styledComponents/styledButton/BtnOrdinary'
 import React from 'react'
+import BtnOrdinary from '@/components/ui/styledComponents/styledButton/BtnOrdinary'
 export default {
     title: 'Components/BtnOrdinary',
     component: BtnOrdinary

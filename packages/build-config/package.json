@@ -44,7 +44,17 @@
     "typescript": "5.3.3",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.2"
+    "webpack-dev-server": "^4.15.2",
+    "@storybook/addon-essentials": "^8.0.10",
+    "@storybook/addon-interactions": "^8.0.10",
+    "@storybook/addon-links": "^8.0.10",
+    "@storybook/addon-onboarding": "^8.0.10",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.2",
+    "@storybook/blocks": "^8.0.10",
+    "@storybook/react": "^8.0.10",
+    "@storybook/react-webpack5": "^8.0.10",
+    "@storybook/test": "^8.0.10",
+    "storybook": "^8.0.10"
   },
   "dependencies": {
     "normalize.css": "^8.0.1"
