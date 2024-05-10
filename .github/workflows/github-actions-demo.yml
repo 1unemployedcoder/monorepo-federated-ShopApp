@@ -19,7 +19,7 @@ jobs:
         working-directory: services/shop/
         run: |
           npm install
-          npm run build
+          npm run build:prod
           npm run build-storybook
           npm run test
           npm run test:cypress
@@ -30,7 +30,7 @@ jobs:
         working-directory: services/admin/
         run: |
           npm install
-          npm run build
+          npm run build:prod
           npm run lint
           npm run typecheck
 
@@ -38,6 +38,6 @@ jobs:
         working-directory: services/host/
         run: |
           npm install
-          npm run build
+          npm run build:prod
           npm run lint
           npm run typecheck
