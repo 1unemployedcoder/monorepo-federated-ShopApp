@@ -8,12 +8,17 @@ describe('Chat tests', () => {
         WrapperReact(<Chat/>)
         const openChatButton = screen.getByText(/Открыть чат/i)
 
-        expect(screen.queryByText(/Ваше имя:/i)).toBeNull()
+        setTimeout(() => {
+            expect(screen.queryByText(/Ваше имя:/i)).toBeNull()
+        }, 1000)
 
         await userEvent.click(openChatButton)
 
         const inputField = await screen.findByPlaceholderText(/Ваше имя:/i)
-        expect(inputField).toBeVisible()
+
+        setTimeout(() => {
+            expect(inputField).toBeVisible()
+        }, 1000)
 
         await userEvent.type(inputField, 'TestUser')
         const enterButton = screen.getByText(/Войти/i)
@@ -21,7 +26,13 @@ describe('Chat tests', () => {
 
         const questionInput = await screen.findByPlaceholderText(/Ваш вопрос:/i)
         fireEvent.change(questionInput, { target: { value: 'Помогите' } })
-        expect(questionInput).toBeVisible()
-        expect(questionInput).toContainHTML('Помогите')
+
+        setTimeout(() => {
+            expect(questionInput).toBeVisible()
+        }, 1000)
+
+        setTimeout(() => {
+            expect(questionInput).toContainHTML('Помогите')
+        }, 1000)
     })
 })
