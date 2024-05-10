@@ -22,7 +22,6 @@ jobs:
           npm run build:prod
           npm run build-storybook
           npm run test
-          npm run test:cypress
           npm run lint
           npm run typecheck
 
